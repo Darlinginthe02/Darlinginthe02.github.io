@@ -1,0 +1,230 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>从大三到求职 2022.2.21（1） | Hexo</title><meta name="author" content="Radeno"><meta name="copyright" content="Radeno"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="从大三到求职 2022.2.21（1）今天复习的内容：  Springboot的启动流程  一、Springboot的启动流程说springboot的启动流程当然少不了springboot启动入口类 1234567@SpringBootApplicationpublic class SpringBootWebApplication &amp;#123;    public static void main">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从大三到求职 2022.2.21（1）">
+<meta property="og:url" content="http://example.com/2022/02/22/2022222-%E4%BB%8E%E5%A4%A7%E4%B8%89%E5%88%B0%E6%B1%82%E8%81%8C-2022.2.21/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="从大三到求职 2022.2.21（1）今天复习的内容：  Springboot的启动流程  一、Springboot的启动流程说springboot的启动流程当然少不了springboot启动入口类 1234567@SpringBootApplicationpublic class SpringBootWebApplication &amp;#123;    public static void main">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/forest-6812584_1920.jpg">
+<meta property="article:published_time" content="2022-02-21T16:05:25.000Z">
+<meta property="article:modified_time" content="2022-02-21T16:13:30.467Z">
+<meta property="article:author" content="Radeno">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/forest-6812584_1920.jpg"><link rel="shortcut icon" href="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/%E7%BC%96%E7%A8%8B.png"><link rel="canonical" href="http://example.com/2022/02/22/2022222-%E4%BB%8E%E5%A4%A7%E4%B8%89%E5%88%B0%E6%B1%82%E8%81%8C-2022.2.21/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '从大三到求职 2022.2.21（1）',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-02-22 00:13:30'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sviptzk/StaticFile_HEXO@latest/butterfly/css/pool.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sviptzk/StaticFile_HEXO@latest/butterfly/css/iconfont.min.css"><meta name="generator" content="Hexo 5.4.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20211211144955.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">7</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/%E9%9F%B3%E4%B9%90"><i class="fa-fw /music/"></i><span> 0</span></a></li><li><a class="site-page child" href="/%E7%94%B5%E5%BD%B1"><i class="fa-fw /movies/"></i><span> 1</span></a></li><li><a class="site-page child" href="/%E7%85%A7%E7%89%87"><i class="fa-fw /Gallery/"></i><span> 2</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/forest-6812584_1920.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Hexo</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/%E9%9F%B3%E4%B9%90"><i class="fa-fw /music/"></i><span> 0</span></a></li><li><a class="site-page child" href="/%E7%94%B5%E5%BD%B1"><i class="fa-fw /movies/"></i><span> 1</span></a></li><li><a class="site-page child" href="/%E7%85%A7%E7%89%87"><i class="fa-fw /Gallery/"></i><span> 2</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">从大三到求职 2022.2.21（1）</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-02-21T16:05:25.000Z" title="发表于 2022-02-22 00:05:25">2022-02-22</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-02-21T16:13:30.467Z" title="更新于 2022-02-22 00:13:30">2022-02-22</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="从大三到求职 2022.2.21（1）"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="从大三到求职-2022-2-21（1）"><a href="#从大三到求职-2022-2-21（1）" class="headerlink" title="从大三到求职 2022.2.21（1）"></a>从大三到求职 2022.2.21（1）</h1><p>今天复习的内容：</p>
+<ol>
+<li>Springboot的启动流程</li>
+</ol>
+<h2 id="一、Springboot的启动流程"><a href="#一、Springboot的启动流程" class="headerlink" title="一、Springboot的启动流程"></a>一、Springboot的启动流程</h2><p>说springboot的启动流程当然少不了springboot启动入口类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SpringBootWebApplication</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        SpringApplication application = <span class="keyword">new</span> SpringApplication(SpringBootWebApplication.class);</span><br><span class="line">        application.run(args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>@SpringBootApplication和application.run()分别是springboot加载配置和启动</p>
+<p>先看配置</p>
+<p>从核心注解  <strong>@SpringbootApplication</strong> 开始</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Target(ElementType.TYPE)</span></span><br><span class="line"><span class="meta">@Retention(RetentionPolicy.RUNTIME)</span></span><br><span class="line"><span class="meta">@Documented</span></span><br><span class="line"><span class="meta">@Inherited</span></span><br><span class="line"><span class="meta">@SpringBootConfiguration</span></span><br><span class="line"><span class="meta">@EnableAutoConfiguration</span></span><br><span class="line"><span class="meta">@ComponentScan(excludeFilters = &#123;</span></span><br><span class="line"><span class="meta">        @Filter(type = FilterType.CUSTOM, classes = TypeExcludeFilter.class),</span></span><br><span class="line"><span class="meta">        @Filter(type = FilterType.CUSTOM, classes = AutoConfigurationExcludeFilter.class) &#125;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> SpringBootApplication &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="三大注解"><a href="#三大注解" class="headerlink" title="三大注解"></a>三大注解</h3><h4 id="1、-SpringBootConfiguration"><a href="#1、-SpringBootConfiguration" class="headerlink" title="1、**@SpringBootConfiguration**"></a>1、**@SpringBootConfiguration**</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Target(ElementType.TYPE)</span></span><br><span class="line"><span class="meta">@Retention(RetentionPolicy.RUNTIME)</span></span><br><span class="line"><span class="meta">@Documented</span></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> SpringBootConfiguration</span><br></pre></td></tr></table></figure>
+
+
+
+<p>其实他就是 <strong>@Configuration</strong>，这里的启动类标注了@Configuration之后，本身其实也是一个IoC容器的配置类，被这个注解注解的方法将会被 <strong>AnnotationConfigApplicationContext</strong> 或 <strong>AnnotationConfigWebApplicationContext</strong> 类进行扫描，并用于构建bean定义，初始化Spring容器</p>
+<h4 id="2、-EnableAutoConfiguration"><a href="#2、-EnableAutoConfiguration" class="headerlink" title="2、@EnableAutoConfiguration"></a>2、@EnableAutoConfiguration</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SuppressWarnings(&quot;deprecation&quot;)</span></span><br><span class="line"><span class="meta">@Target(ElementType.TYPE)</span></span><br><span class="line"><span class="meta">@Retention(RetentionPolicy.RUNTIME)</span></span><br><span class="line"><span class="meta">@Documented</span></span><br><span class="line"><span class="meta">@Inherited</span></span><br><span class="line"><span class="meta">@AutoConfigurationPackage</span></span><br><span class="line"><span class="meta">@Import(EnableAutoConfigurationImportSelector.class)</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> EnableAutoConfiguration &#123;</span><br></pre></td></tr></table></figure>
+
+<p> 这个注解是自动配置的核心注解，他的功能是借助**@Import**的支持，收集和注册各种要用到的bean。</p>
+<p>其中，最关键的要属**@Import(EnableAutoConfigurationImportSelector.class)** ，自动配置文件收集器，收集配置文件中的配置工厂类（下图中spring.factories中会存放各种常用的工厂类，在META-INF目录下），他会把所有符合条件的被**@Configuration**所注解的配置都加载到当前的Springboot并且创建IOC容器以便使用</p>
+<p>然后使用spring框架原有的工具类 <strong>SpringFactoriesLoader</strong> ，这个工具类可以很智能的帮我们完成自动配置</p>
+<p>他的主要功能就是把刚刚自动配置文件收集器收集到的配置工厂类通过反射创建出实例化为对应的标注了 @Configuration 的JavaConfig形式的IoC容器配置类，然后汇总为一个并加载到IoC容器 ApplicationContext （Spring上下文环境）中。</p>
+<img src="https://s2.loli.net/2022/02/21/sCJGpUHSK1eyruE.png" alt="image-20220221231009906" style="zoom: 67%;" />
+
+
+
+<h3 id="springboot启动简单流程"><a href="#springboot启动简单流程" class="headerlink" title="springboot启动简单流程"></a>springboot启动简单流程</h3><p>1、 当我们运行SpringApplication的main方法时,调用静态方法run() <strong>首先是实例化SpringApplication</strong></p>
+<p>初始化的时候主要做主要做三件事：    </p>
+<ul>
+<li>根据classpath下是否存在(ConfigurableWebApplicationContext)判断是否要启动一个web applicationContext。</li>
+<li>SpringFactoriesInstances加载classpath下所有可用的ApplicationContextInitializer</li>
+<li>SpringFactoriesInstances加载classpath下所有可用的ApplicationListener</li>
+</ul>
+<p>2、SpringApplicatio实例化完成并且完成配置后调用run()方法</p>
+<p>首先遍历初始化过程中加载的<strong>SpringApplicationRunListeners</strong>，然后调用started(),开始监听springApplication的启动。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SpringApplicationRunListener：它是一个监听者</span><br><span class="line">纵观整个启动流程我们会发现，它其实是用来在整个启动流程中接收不同执行点事件通知的监听者</span><br><span class="line">SpringApplicationRunListener接口规定了SpringBoot的生命周期，在各个生命周期广播相应的事件，调用实际的ApplicationListener类。</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://s2.loli.net/2022/02/21/V1ib2sh38MEcB6j.png" alt="image-20220221234429329"></p>
+<p>1.3.3  加载SpringBoot配置环境(ConfigurableEnvironment)，如果是通过web容器发布，会加载StandardEnvironment。将配置环境(Environment)加入到监听器对象中(SpringApplicationRunListeners)。</p>
+<p>1.3.4 banner属性的设置</p>
+<p><img src="https://s2.loli.net/2022/02/21/kcAESLpxVnNbsWr.png" alt="clipboard.png"></p>
+<p>1.3.5 ConfigurableApplicationContext(应用配置上下文)创建，根据webEnvironment是否是web环境创建默认的contextClass<br>,AnnotationConfigEmbeddedWebApplicationContext(通过扫描所有注解类来加载bean)和ConfigurableWebApplicationContext),最后通过BeanUtils实例化上下文对象，并返回。</p>
+<p><img src="https://s2.loli.net/2022/02/21/xPWreZ8sjtQ6Nk9.png" alt="clipboard.png"></p>
+<p>1.3.6 prepareContext()方法将listeners、environment、applicationArguments、banner等重要组件与上下文对象关联。</p>
+<p><img src="https://s2.loli.net/2022/02/21/RjUQbsoHL6iVT3N.png" alt="clipboard.png"></p>
+<p>1.3.7 refreshContext(context),bean的实例化完成IoC容器可用的最后一道工序。</p>
+<p><img src="https://s2.loli.net/2022/02/21/qK5vFgiZxfWc9ne.png" alt="clipboard.png"></p>
+<p>1.3.8 最后springboot做一些收尾工作</p>
+<h2 id="二、JAVA中用过什么锁？除了synchronized和ReentrantLock还用过什么锁？"><a href="#二、JAVA中用过什么锁？除了synchronized和ReentrantLock还用过什么锁？" class="headerlink" title="二、JAVA中用过什么锁？除了synchronized和ReentrantLock还用过什么锁？"></a>二、JAVA中用过什么锁？除了synchronized和ReentrantLock还用过什么锁？</h2><p>synchronized ， ReentrantLock，ReentrantReadWriteLocK </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Synchronized，它就是一个：非公平，悲观，独享，互斥，可重入的重量级锁</span><br><span class="line"></span><br><span class="line">以下两个锁都在JUC包下，是API层面上的实现</span><br><span class="line"></span><br><span class="line">ReentrantLock，它是一个：默认非公平但可实现公平的，悲观，独享，互斥，可重入，重量级锁。</span><br><span class="line"></span><br><span class="line">ReentrantReadWriteLocK，它是一个，默认非公平但可实现公平的，悲观，写独享，读共享，读写，可重入，重量级锁</span><br></pre></td></tr></table></figure>
+
+<p>CountDownLatch，CyclicBarrier，Phaser</p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/aheizi/p/7195963.html">https://www.cnblogs.com/aheizi/p/7195963.html</a></p>
+<p>StampedLock</p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/zxporz/p/11642176.html">https://www.cnblogs.com/zxporz/p/11642176.html</a></p>
+<p>StampedLock是为了优化可重入读写锁性能的一个锁实现工具，jdk8开始引入</p>
+<p>相比于普通的ReentranReadWriteLock主要多了一种乐观读的功能</p>
+<p>在API上增加了stamp的入参和返回值，不支持重入</p>
+<hr>
+<h2 id="三、如何确定线程池中线程的个数？"><a href="#三、如何确定线程池中线程的个数？" class="headerlink" title="三、如何确定线程池中线程的个数？"></a>三、如何确定线程池中线程的个数？</h2><p>CPU密集型 ：cpu核心数 +1</p>
+<p>IO密集型：cpu核心数 * 2</p>
+<hr>
+<h2 id="四、什么时候会引发栈内存溢出？什么时候会引发堆内存溢出？"><a href="#四、什么时候会引发栈内存溢出？什么时候会引发堆内存溢出？" class="headerlink" title="四、什么时候会引发栈内存溢出？什么时候会引发堆内存溢出？"></a>四、什么时候会引发栈内存溢出？什么时候会引发堆内存溢出？</h2><p>什么时候会引发栈内存溢出？</p>
+<p>当产生的栈帧数量太多超过了系统参数预设时，就会发生栈内存溢出，抛出Stack Overflow异常</p>
+<p>典型例子为：方法递归调用层数过多，方法互相调用</p>
+<p><strong>栈深度溢出</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span>  <span class="title">testStackOverFlow</span><span class="params">()</span></span>&#123; </span><br><span class="line">      BlowUpJVM.testStackOverFlow(); </span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<p>栈不断递归，而且没有处理，所以虚拟机栈就不断深入不断深入，栈深度就这样溢出了。</p>
+<hr>
+<p>什么时候会引发堆内存溢出？</p>
+<p>当剩余内存不够给新的对象分配时，且堆无法扩展，并且在GC后都无法有足够的空间分配时，就会产生堆内存溢出，抛出OOM异常</p>
+<p>（可以说你调整过堆内存大小测试过）</p>
+<p>典型例子为：</p>
+<p><strong>堆溢出</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">testOutOfHeapMemory</span><span class="params">()</span></span>&#123; </span><br><span class="line">   List&lt;StringBuffer&gt; list = <span class="keyword">new</span> ArrayList&lt;StringBuffer&gt;(); </span><br><span class="line">   <span class="keyword">while</span>(<span class="keyword">true</span>)&#123; </span><br><span class="line">      StringBuffer B = <span class="keyword">new</span> StringBuffer(); </span><br><span class="line">      <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span> ; i &lt; <span class="number">10000</span> ; i++)&#123; </span><br><span class="line">         B.append(i); </span><br><span class="line">      &#125; </span><br><span class="line">      list.add(B); </span><br><span class="line">   &#125; </span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<p>不断往堆中塞新增的StringBuffer对象，堆满了就直接溢出了。</p>
+<hr>
+<h2 id="五、Mysql的主从复制"><a href="#五、Mysql的主从复制" class="headerlink" title="五、Mysql的主从复制"></a>五、Mysql的主从复制</h2><p>主库将变更写入binlog日志，当从库连接上主库，会有一个IO线程拷贝一份binlog到本地，然后再写入relay中的中继日志，接着库中会有一个SQL线程会从中继日志中读取这个SQL语句，然后去执行这个语句，也就是在从库再跑一次SQL。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Radeno</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2022/02/22/2022222-%E4%BB%8E%E5%A4%A7%E4%B8%89%E5%88%B0%E6%B1%82%E8%81%8C-2022.2.21/">http://example.com/2022/02/22/2022222-%E4%BB%8E%E5%A4%A7%E4%B8%89%E5%88%B0%E6%B1%82%E8%81%8C-2022.2.21/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">Hexo</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/forest-6812584_1920.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2021/12/19/20211219-%E6%AF%8F%E6%97%A5%E7%AE%97%E6%B3%95%EF%BC%881%EF%BC%89/"><img class="next-cover" src="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/forest-6812584_1920.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">每日算法（1）</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20211211144955.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Radeno</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">7</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Darlinginthe02"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">欢迎来到Radeno的博客</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%8E%E5%A4%A7%E4%B8%89%E5%88%B0%E6%B1%82%E8%81%8C-2022-2-21%EF%BC%881%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">从大三到求职 2022.2.21（1）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81Springboot%E7%9A%84%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B"><span class="toc-number">1.1.</span> <span class="toc-text">一、Springboot的启动流程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E5%A4%A7%E6%B3%A8%E8%A7%A3"><span class="toc-number">1.1.1.</span> <span class="toc-text">三大注解</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1%E3%80%81-SpringBootConfiguration"><span class="toc-number">1.1.1.1.</span> <span class="toc-text">1、**@SpringBootConfiguration**</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2%E3%80%81-EnableAutoConfiguration"><span class="toc-number">1.1.1.2.</span> <span class="toc-text">2、@EnableAutoConfiguration</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#springboot%E5%90%AF%E5%8A%A8%E7%AE%80%E5%8D%95%E6%B5%81%E7%A8%8B"><span class="toc-number">1.1.2.</span> <span class="toc-text">springboot启动简单流程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81JAVA%E4%B8%AD%E7%94%A8%E8%BF%87%E4%BB%80%E4%B9%88%E9%94%81%EF%BC%9F%E9%99%A4%E4%BA%86synchronized%E5%92%8CReentrantLock%E8%BF%98%E7%94%A8%E8%BF%87%E4%BB%80%E4%B9%88%E9%94%81%EF%BC%9F"><span class="toc-number">1.2.</span> <span class="toc-text">二、JAVA中用过什么锁？除了synchronized和ReentrantLock还用过什么锁？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%A6%82%E4%BD%95%E7%A1%AE%E5%AE%9A%E7%BA%BF%E7%A8%8B%E6%B1%A0%E4%B8%AD%E7%BA%BF%E7%A8%8B%E7%9A%84%E4%B8%AA%E6%95%B0%EF%BC%9F"><span class="toc-number">1.3.</span> <span class="toc-text">三、如何确定线程池中线程的个数？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E4%BC%9A%E5%BC%95%E5%8F%91%E6%A0%88%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA%EF%BC%9F%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E4%BC%9A%E5%BC%95%E5%8F%91%E5%A0%86%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA%EF%BC%9F"><span class="toc-number">1.4.</span> <span class="toc-text">四、什么时候会引发栈内存溢出？什么时候会引发堆内存溢出？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81Mysql%E7%9A%84%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6"><span class="toc-number">1.5.</span> <span class="toc-text">五、Mysql的主从复制</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/02/22/2022222-%E4%BB%8E%E5%A4%A7%E4%B8%89%E5%88%B0%E6%B1%82%E8%81%8C-2022.2.21/" title="从大三到求职 2022.2.21（1）"><img src="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/forest-6812584_1920.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="从大三到求职 2022.2.21（1）"/></a><div class="content"><a class="title" href="/2022/02/22/2022222-%E4%BB%8E%E5%A4%A7%E4%B8%89%E5%88%B0%E6%B1%82%E8%81%8C-2022.2.21/" title="从大三到求职 2022.2.21（1）">从大三到求职 2022.2.21（1）</a><time datetime="2022-02-21T16:05:25.000Z" title="发表于 2022-02-22 00:05:25">2022-02-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/12/19/20211219-%E6%AF%8F%E6%97%A5%E7%AE%97%E6%B3%95%EF%BC%881%EF%BC%89/" title="每日算法（1）"><img src="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/forest-6812584_1920.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="每日算法（1）"/></a><div class="content"><a class="title" href="/2021/12/19/20211219-%E6%AF%8F%E6%97%A5%E7%AE%97%E6%B3%95%EF%BC%881%EF%BC%89/" title="每日算法（1）">每日算法（1）</a><time datetime="2021-12-19T14:02:00.000Z" title="发表于 2021-12-19 22:02:00">2021-12-19</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/12/15/%E6%AF%8F%E6%97%A5%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%883%EF%BC%89/" title="每日面试题（3）"><img src="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/forest-6812584_1920.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="每日面试题（3）"/></a><div class="content"><a class="title" href="/2021/12/15/%E6%AF%8F%E6%97%A5%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%883%EF%BC%89/" title="每日面试题（3）">每日面试题（3）</a><time datetime="2021-12-15T13:44:00.000Z" title="发表于 2021-12-15 21:44:00">2021-12-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/12/13/%E7%BA%BF%E7%A8%8B%E6%B1%A0/" title="线程池"><img src="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/forest-6812584_1920.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="线程池"/></a><div class="content"><a class="title" href="/2021/12/13/%E7%BA%BF%E7%A8%8B%E6%B1%A0/" title="线程池">线程池</a><time datetime="2021-12-13T15:56:25.000Z" title="发表于 2021-12-13 23:56:25">2021-12-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/12/13/%E6%AF%8F%E6%97%A5%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%882%EF%BC%89/" title="每日面试题（2）"><img src="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/forest-6812584_1920.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="每日面试题（2）"/></a><div class="content"><a class="title" href="/2021/12/13/%E6%AF%8F%E6%97%A5%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%882%EF%BC%89/" title="每日面试题（2）">每日面试题（2）</a><time datetime="2021-12-12T16:10:25.000Z" title="发表于 2021-12-13 00:10:25">2021-12-13</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By Radeno</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script src="https://cdn.jsdelivr.net/gh/sviptzk/StaticFile_HEXO@latest/butterfly/js/pool.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
