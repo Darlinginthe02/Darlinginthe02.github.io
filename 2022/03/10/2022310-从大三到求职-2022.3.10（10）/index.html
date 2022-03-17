@@ -1,0 +1,233 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>从大三到求职 2022.3.10（10） | Hexo</title><meta name="author" content="Radeno"><meta name="copyright" content="Radeno"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="从大三到求职 2022.3.10（10）今天学习内容: 1、TCP  一、TCP1、TCP 基本认识什么是 TCP ？ TCP 是 面向连接 ， 可靠的 ，基于字节流 的传输层通信协议。   面向连接：一定是「⼀对⼀」才能连接，不能像UDP一样进行一个主机向多个主机发送消息。 可靠的：无论网络链路中发生了什么变化，TCP都可以保证一个报文一定可以达到接收端。 字节流：消息是「没有边界」的，所以无论">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从大三到求职 2022.3.10（10）">
+<meta property="og:url" content="http://example.com/2022/03/10/2022310-%E4%BB%8E%E5%A4%A7%E4%B8%89%E5%88%B0%E6%B1%82%E8%81%8C-2022.3.10%EF%BC%8810%EF%BC%89/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="从大三到求职 2022.3.10（10）今天学习内容: 1、TCP  一、TCP1、TCP 基本认识什么是 TCP ？ TCP 是 面向连接 ， 可靠的 ，基于字节流 的传输层通信协议。   面向连接：一定是「⼀对⼀」才能连接，不能像UDP一样进行一个主机向多个主机发送消息。 可靠的：无论网络链路中发生了什么变化，TCP都可以保证一个报文一定可以达到接收端。 字节流：消息是「没有边界」的，所以无论">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/forest-6812584_1920.jpg">
+<meta property="article:published_time" content="2022-03-09T16:05:25.000Z">
+<meta property="article:modified_time" content="2022-03-14T09:43:59.387Z">
+<meta property="article:author" content="Radeno">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/forest-6812584_1920.jpg"><link rel="shortcut icon" href="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/%E7%BC%96%E7%A8%8B.png"><link rel="canonical" href="http://example.com/2022/03/10/2022310-%E4%BB%8E%E5%A4%A7%E4%B8%89%E5%88%B0%E6%B1%82%E8%81%8C-2022.3.10%EF%BC%8810%EF%BC%89/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '从大三到求职 2022.3.10（10）',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-03-14 17:43:59'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sviptzk/StaticFile_HEXO@latest/butterfly/css/pool.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sviptzk/StaticFile_HEXO@latest/butterfly/css/iconfont.min.css"><meta name="generator" content="Hexo 5.4.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20211211144955.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">17</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/%E9%9F%B3%E4%B9%90"><i class="fa-fw /music/"></i><span> 0</span></a></li><li><a class="site-page child" href="/%E7%94%B5%E5%BD%B1"><i class="fa-fw /movies/"></i><span> 1</span></a></li><li><a class="site-page child" href="/%E7%85%A7%E7%89%87"><i class="fa-fw /Gallery/"></i><span> 2</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/forest-6812584_1920.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Hexo</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/%E9%9F%B3%E4%B9%90"><i class="fa-fw /music/"></i><span> 0</span></a></li><li><a class="site-page child" href="/%E7%94%B5%E5%BD%B1"><i class="fa-fw /movies/"></i><span> 1</span></a></li><li><a class="site-page child" href="/%E7%85%A7%E7%89%87"><i class="fa-fw /Gallery/"></i><span> 2</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">从大三到求职 2022.3.10（10）</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-03-09T16:05:25.000Z" title="发表于 2022-03-10 00:05:25">2022-03-10</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-03-14T09:43:59.387Z" title="更新于 2022-03-14 17:43:59">2022-03-14</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="从大三到求职 2022.3.10（10）"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="从大三到求职-2022-3-10（10）"><a href="#从大三到求职-2022-3-10（10）" class="headerlink" title="从大三到求职 2022.3.10（10）"></a>从大三到求职 2022.3.10（10）</h1><p>今天学习内容:</p>
+<p>1、TCP</p>
+<hr>
+<h2 id="一、TCP"><a href="#一、TCP" class="headerlink" title="一、TCP"></a>一、TCP</h2><h3 id="1、TCP-基本认识"><a href="#1、TCP-基本认识" class="headerlink" title="1、TCP 基本认识"></a>1、TCP 基本认识</h3><p>什么是 TCP ？</p>
+<p>TCP 是 <strong>面向连接</strong> ， <strong>可靠的</strong> ，<strong>基于字节流</strong> 的传输层通信协议。</p>
+<p><img src="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/img/image-20220310142402284.png" alt="image-20220310142402284"></p>
+<ul>
+<li>面向连接：一定是「⼀对⼀」才能连接，不能像UDP一样进行一个主机向多个主机发送消息。</li>
+<li>可靠的：无论网络链路中发生了什么变化，TCP都可以保证一个报文一定可以达到接收端。</li>
+<li>字节流：消息是「没有边界」的，所以无论多大的数据都可以传输。并且消息是「有序的」，当前一个消息没有收到的时候，即使他先收到了后面的字节，也不会给应用层去处理，同时对重复报文会自动丢弃。</li>
+</ul>
+<hr>
+<h3 id="2、TCP-头格式"><a href="#2、TCP-头格式" class="headerlink" title="2、TCP 头格式"></a>2、TCP 头格式</h3><p><img src="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/img/image-20220310142722878.png" alt="image-20220310142722878"></p>
+<p><strong>序列号</strong>：在建立连接时随机生成的一个数作为其初始值，通过syn包发送给接收端主机，每发送一次数据，就「累加」⼀次该「数据字节数」的⼤⼩。<strong>⽤来解决⽹络包乱序问题。</strong></p>
+<p><strong>确认应答号</strong>：指下一次期望收到的数据的序列号，发送端收到这个确认应答以后可以认为在这个序号以前的数据都被正常接收。</p>
+<p><strong>控制位</strong>：</p>
+<ul>
+<li><p><em>ACK</em>：该位为 1 时，「确认应答」的字段变为有效，TCP 规定除了最初建⽴连接时的 SYN 包之外该位必须设置为 1 。</p>
+</li>
+<li><p><em>RST</em>：该位为 1 时，表示 TCP 连接中出现异常必须强制断开连接。</p>
+</li>
+<li><p><em>SYN</em>：该位为 1 时，表示希望建⽴连接，并在其「序列号」的字段进⾏序列号初始值的设定。</p>
+</li>
+<li><p><em>FIN</em>：该位为 1 时，表示今后不会再有数据发送，希望断开连接。当通信结束希望断开连接时，通信双⽅的主机之间就可以相互交换 FIN 位为 1 的 TCP 段。</p>
+</li>
+</ul>
+<hr>
+<h3 id="3、为什么需要-TCP-协议？-TCP-⼯作在哪⼀层？"><a href="#3、为什么需要-TCP-协议？-TCP-⼯作在哪⼀层？" class="headerlink" title="3、为什么需要 TCP 协议？ TCP ⼯作在哪⼀层？"></a>3、为什么需要 TCP 协议？ TCP ⼯作在哪⼀层？</h3><p>IP （网络）层是「不可靠」的，它不保证⽹络包的交付、不保证⽹络包的按序交付、也不保证⽹络包中的数据的完整性。</p>
+<p>如果需要保障⽹络数据包的可靠性，那么就需要由上层（传输层）的 TCP 协议来负责。</p>
+<p>因为 TCP 是⼀个⼯作在<strong>传输层</strong>的<strong>可靠</strong>数据传输的服务，它能确保接收端接收的⽹络包是<strong>⽆损坏、⽆间隔、⾮冗余</strong></p>
+<p><strong>和按序的。</strong></p>
+<hr>
+<h3 id="4、什么是TCP连接？"><a href="#4、什么是TCP连接？" class="headerlink" title="4、什么是TCP连接？"></a>4、什么是TCP连接？</h3><p>简单来说就是，用户保证可靠性和流量控制维护的某些状态信息，这些信息的组合，包括Socket、序列号和窗⼝⼤⼩称为连接。</p>
+<p>所以我们可以知道，建⽴⼀个 TCP 连接是需要客户端与服务器端达成上述三个信息的共识。</p>
+<ul>
+<li><p><strong>Socket</strong>：由 IP 地址和端口号组成</p>
+</li>
+<li><p><strong>序列号</strong>：⽤来解决乱序问题等</p>
+</li>
+<li><p><strong>窗⼝⼤⼩</strong>：⽤来做流量控制</p>
+</li>
+</ul>
+<hr>
+<h3 id="5、TCP建立连接（三次握手）"><a href="#5、TCP建立连接（三次握手）" class="headerlink" title="5、TCP建立连接（三次握手）"></a>5、TCP建立连接（三次握手）</h3><p>TCP 是⾯向连接的协议，所以使⽤ TCP 前必须先建⽴连接，⽽<strong>建⽴连接是通过三次握⼿来进⾏的。</strong></p>
+<img src="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/img/image-20220310143519963.png" alt="image-20220310143519963" style="zoom: 33%;" />
+
+
+
+<p>大白话的说三次握手的过程：</p>
+<ol>
+<li>客户端告诉客户端我需要连接（SYN），发送SYN报文，把SYN置为1，并把自己的序列号一起发过去</li>
+<li>服务端收到请求，告诉客户端我确认收到了（ACK），并且也告诉客户端客户端我需要连接（SYN），所以就发送了SYN+ACK报文，并对确认应答号+1（指下一次期望收到的数据的序列号，发送端收到这个确认应答以后可以认为在这个序号以前的数据都被正常接收）</li>
+<li>客户端收到ACK+SYN报文之后，最后一次回复ACK报文，表示自己也确认收到了 服务端收到的消息，把ACK置为1，确认应答号设为Server_isn+1，最后把报文发送回服务端，这次报文可以携带客户数据到服务器数据。</li>
+</ol>
+<p>从上⾯的过程可以发现<strong>第三次握⼿是可以携带数据的，前两次握⼿是不可以携带数据的</strong>，这也是⾯试常问的题</p>
+<hr>
+<h3 id="6、TCP连接断开（四次挥手）"><a href="#6、TCP连接断开（四次挥手）" class="headerlink" title="6、TCP连接断开（四次挥手）"></a>6、TCP连接断开（四次挥手）</h3><p>TCP 断开连接是通过<strong>四次挥⼿</strong>⽅式，双⽅都可以主动断开连接，断开连接后主机中的「资源」将被释放。</p>
+<img src="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/img/image-20220310170312089.png" alt="image-20220310170312089" style="zoom: 50%;" />
+
+<ul>
+<li><em>FIN</em>：该位为 1 时，表示今后不会再有数据发送，希望断开连接。当通信结束希望断开连接时，通信双⽅的主机之间就可以相互交换 FIN 位为 1 的 TCP 段。</li>
+</ul>
+<p>大致流程如下：</p>
+<ol>
+<li>客户端打算断开连接，此时发送一个TCP部首<code>FIN</code>标志位为1的报文，就是<code>FIN</code>报文，表示之后不在有数据发送，希望断开连接，之后客户端就进入了<code>FIN_WAIT_1</code>状态(第一次挥手)</li>
+<li>服务端收到之后，先向客户端发送了<code>ACK</code> 报文，表示自己已经收到请求，并进入<code>CLOSED_WAIT</code>状态。（第二次挥手）</li>
+<li>客户端收到服务端 <code>ACK</code> ,进入<code>FIN_WAIT_2 </code>状态，因为服务端可能还有数据需要处理和发送，所以客户端需要等服务端不再发送数据之后，再发送ACK报文</li>
+<li>服务端处理完剩下的数据了，发送<code>FIN</code>报文，表示之后不在有数据发送，希望断开连接，之后服务端进⼊ <code>LAST_ACK</code> 状态。（第三次挥手）</li>
+<li>客户端收到服务端的<code>FIN</code>报文后，回应<code>ACK</code>报文，表示自己收到了，并进入<code>TIME_WAIT </code>状态（第四次挥手）</li>
+<li>服务器收到了 ACK 应答报⽂后，就进⼊了 CLOSED 状态，⾄此服务端已经完成连接的关闭。</li>
+<li>客户端在经过 2MSL ⼀段时间后，⾃动进⼊ CLOSED 状态，⾄此客户端也完成连接的关闭。</li>
+</ol>
+<p>可以看到，每个方向都需要一个<code>FIN</code>和一个<code>ACK</code>，所以通常被称为<code>四次挥手</code>。</p>
+<p>这⾥⼀点需要注意是：<strong>主动关闭连接的，才有</strong> <code>TIME_WAIT</code> <strong>状态。</strong></p>
+<h4 id="为什么挥⼿需要四次？"><a href="#为什么挥⼿需要四次？" class="headerlink" title="为什么挥⼿需要四次？"></a>为什么挥⼿需要四次？</h4><ul>
+<li><p>因为关闭连接时，客户端向服务端发送FIN时，只是表示客户端不再发送数据但还可以接收数据。</p>
+</li>
+<li><p>服务器收到客户端的 FIN 报⽂时，先回⼀个 ACK 应答报⽂，⽽服务端可能还有数据需要处理和发送，等</p>
+<p>服务端不再发送数据时，才发送 FIN 报⽂给客户端来表示同意现在关闭连接。</p>
+</li>
+</ul>
+<p>从上⾯过程可知，服务端通常需要等待完成数据的发送和处理，所以服务端的 ACK 和 FIN ⼀般都会分开发</p>
+<p>送，从⽽⽐三次握⼿导致多了⼀次。</p>
+<p>其实就是多了一个等待数据处理完的流程，把三次握手的SYN+ACK拆开理解就好。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Radeno</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2022/03/10/2022310-%E4%BB%8E%E5%A4%A7%E4%B8%89%E5%88%B0%E6%B1%82%E8%81%8C-2022.3.10%EF%BC%8810%EF%BC%89/">http://example.com/2022/03/10/2022310-%E4%BB%8E%E5%A4%A7%E4%B8%89%E5%88%B0%E6%B1%82%E8%81%8C-2022.3.10%EF%BC%8810%EF%BC%89/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">Hexo</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/forest-6812584_1920.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/03/14/2022314-%E4%BB%8E%E5%A4%A7%E4%B8%89%E5%88%B0%E6%B1%82%E8%81%8C-2022.3.14%EF%BC%8811%EF%BC%89/"><img class="prev-cover" src="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/forest-6812584_1920.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">从大三到求职 2022.3.14（11）</div></div></a></div><div class="next-post pull-right"><a href="/2022/03/09/202239-%E4%BB%8E%E5%A4%A7%E4%B8%89%E5%88%B0%E6%B1%82%E8%81%8C-2022.3.9%EF%BC%889%EF%BC%89/"><img class="next-cover" src="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/forest-6812584_1920.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">从大三到求职 2022.3.9（9）</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20211211144955.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Radeno</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">17</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Darlinginthe02"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">欢迎来到Radeno的博客</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%8E%E5%A4%A7%E4%B8%89%E5%88%B0%E6%B1%82%E8%81%8C-2022-3-10%EF%BC%8810%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">从大三到求职 2022.3.10（10）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81TCP"><span class="toc-number">1.1.</span> <span class="toc-text">一、TCP</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81TCP-%E5%9F%BA%E6%9C%AC%E8%AE%A4%E8%AF%86"><span class="toc-number">1.1.1.</span> <span class="toc-text">1、TCP 基本认识</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81TCP-%E5%A4%B4%E6%A0%BC%E5%BC%8F"><span class="toc-number">1.1.2.</span> <span class="toc-text">2、TCP 头格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%E3%80%81%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81-TCP-%E5%8D%8F%E8%AE%AE%EF%BC%9F-TCP-%E2%BC%AF%E4%BD%9C%E5%9C%A8%E5%93%AA%E2%BC%80%E5%B1%82%EF%BC%9F"><span class="toc-number">1.1.3.</span> <span class="toc-text">3、为什么需要 TCP 协议？ TCP ⼯作在哪⼀层？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4%E3%80%81%E4%BB%80%E4%B9%88%E6%98%AFTCP%E8%BF%9E%E6%8E%A5%EF%BC%9F"><span class="toc-number">1.1.4.</span> <span class="toc-text">4、什么是TCP连接？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5%E3%80%81TCP%E5%BB%BA%E7%AB%8B%E8%BF%9E%E6%8E%A5%EF%BC%88%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%EF%BC%89"><span class="toc-number">1.1.5.</span> <span class="toc-text">5、TCP建立连接（三次握手）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6%E3%80%81TCP%E8%BF%9E%E6%8E%A5%E6%96%AD%E5%BC%80%EF%BC%88%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B%EF%BC%89"><span class="toc-number">1.1.6.</span> <span class="toc-text">6、TCP连接断开（四次挥手）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E6%8C%A5%E2%BC%BF%E9%9C%80%E8%A6%81%E5%9B%9B%E6%AC%A1%EF%BC%9F"><span class="toc-number">1.1.6.1.</span> <span class="toc-text">为什么挥⼿需要四次？</span></a></li></ol></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/03/16/2022316-%E4%BB%8E%E5%A4%A7%E4%B8%89%E5%88%B0%E6%B1%82%E8%81%8C-2022.3.16%EF%BC%8812%EF%BC%89/" title="从大三到求职 2022.3.16（12）"><img src="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/forest-6812584_1920.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="从大三到求职 2022.3.16（12）"/></a><div class="content"><a class="title" href="/2022/03/16/2022316-%E4%BB%8E%E5%A4%A7%E4%B8%89%E5%88%B0%E6%B1%82%E8%81%8C-2022.3.16%EF%BC%8812%EF%BC%89/" title="从大三到求职 2022.3.16（12）">从大三到求职 2022.3.16（12）</a><time datetime="2022-03-15T16:05:25.000Z" title="发表于 2022-03-16 00:05:25">2022-03-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/03/14/2022314-%E4%BB%8E%E5%A4%A7%E4%B8%89%E5%88%B0%E6%B1%82%E8%81%8C-2022.3.14%EF%BC%8811%EF%BC%89/" title="从大三到求职 2022.3.14（11）"><img src="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/forest-6812584_1920.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="从大三到求职 2022.3.14（11）"/></a><div class="content"><a class="title" href="/2022/03/14/2022314-%E4%BB%8E%E5%A4%A7%E4%B8%89%E5%88%B0%E6%B1%82%E8%81%8C-2022.3.14%EF%BC%8811%EF%BC%89/" title="从大三到求职 2022.3.14（11）">从大三到求职 2022.3.14（11）</a><time datetime="2022-03-13T16:05:25.000Z" title="发表于 2022-03-14 00:05:25">2022-03-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/03/10/2022310-%E4%BB%8E%E5%A4%A7%E4%B8%89%E5%88%B0%E6%B1%82%E8%81%8C-2022.3.10%EF%BC%8810%EF%BC%89/" title="从大三到求职 2022.3.10（10）"><img src="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/forest-6812584_1920.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="从大三到求职 2022.3.10（10）"/></a><div class="content"><a class="title" href="/2022/03/10/2022310-%E4%BB%8E%E5%A4%A7%E4%B8%89%E5%88%B0%E6%B1%82%E8%81%8C-2022.3.10%EF%BC%8810%EF%BC%89/" title="从大三到求职 2022.3.10（10）">从大三到求职 2022.3.10（10）</a><time datetime="2022-03-09T16:05:25.000Z" title="发表于 2022-03-10 00:05:25">2022-03-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/03/09/202239-%E4%BB%8E%E5%A4%A7%E4%B8%89%E5%88%B0%E6%B1%82%E8%81%8C-2022.3.9%EF%BC%889%EF%BC%89/" title="从大三到求职 2022.3.9（9）"><img src="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/forest-6812584_1920.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="从大三到求职 2022.3.9（9）"/></a><div class="content"><a class="title" href="/2022/03/09/202239-%E4%BB%8E%E5%A4%A7%E4%B8%89%E5%88%B0%E6%B1%82%E8%81%8C-2022.3.9%EF%BC%889%EF%BC%89/" title="从大三到求职 2022.3.9（9）">从大三到求职 2022.3.9（9）</a><time datetime="2022-03-08T16:05:25.000Z" title="发表于 2022-03-09 00:05:25">2022-03-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/03/08/202238-%E4%BB%8E%E5%A4%A7%E4%B8%89%E5%88%B0%E6%B1%82%E8%81%8C-2022.3.8%EF%BC%888%EF%BC%89/" title="从大三到求职 2022.3.8（8）"><img src="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/forest-6812584_1920.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="从大三到求职 2022.3.8（8）"/></a><div class="content"><a class="title" href="/2022/03/08/202238-%E4%BB%8E%E5%A4%A7%E4%B8%89%E5%88%B0%E6%B1%82%E8%81%8C-2022.3.8%EF%BC%888%EF%BC%89/" title="从大三到求职 2022.3.8（8）">从大三到求职 2022.3.8（8）</a><time datetime="2022-03-07T16:05:25.000Z" title="发表于 2022-03-08 00:05:25">2022-03-08</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By Radeno</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script src="https://cdn.jsdelivr.net/gh/sviptzk/StaticFile_HEXO@latest/butterfly/js/pool.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

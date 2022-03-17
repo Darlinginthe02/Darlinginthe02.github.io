@@ -1,0 +1,224 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>从大三到求职 2022.3.16（12） | Hexo</title><meta name="author" content="Radeno"><meta name="copyright" content="Radeno"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="从大三到求职 2022.3.16（12）今天学习的内容：  垃圾回收   一、垃圾回收1、垃圾的概念首先，什么是垃圾呢？ 垃圾就是不会再被使用的对象，我们称之为垃圾。 怎么鉴别垃圾呢？ 最传统的鉴别是否是垃圾的方法，就是加一个引用计数器，当计数器为0时，他就是垃圾了，需要被回收。 但是这种方法局限性很大，如果出现两个对象互相调用，那么就永远无法被回收。 那么更好的方法是？ 而在JVM中，我们一般使">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从大三到求职 2022.3.16（12）">
+<meta property="og:url" content="http://example.com/2022/03/16/2022316-%E4%BB%8E%E5%A4%A7%E4%B8%89%E5%88%B0%E6%B1%82%E8%81%8C-2022.3.16%EF%BC%8812%EF%BC%89/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="从大三到求职 2022.3.16（12）今天学习的内容：  垃圾回收   一、垃圾回收1、垃圾的概念首先，什么是垃圾呢？ 垃圾就是不会再被使用的对象，我们称之为垃圾。 怎么鉴别垃圾呢？ 最传统的鉴别是否是垃圾的方法，就是加一个引用计数器，当计数器为0时，他就是垃圾了，需要被回收。 但是这种方法局限性很大，如果出现两个对象互相调用，那么就永远无法被回收。 那么更好的方法是？ 而在JVM中，我们一般使">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/forest-6812584_1920.jpg">
+<meta property="article:published_time" content="2022-03-15T16:05:25.000Z">
+<meta property="article:modified_time" content="2022-03-16T12:05:01.246Z">
+<meta property="article:author" content="Radeno">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/forest-6812584_1920.jpg"><link rel="shortcut icon" href="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/%E7%BC%96%E7%A8%8B.png"><link rel="canonical" href="http://example.com/2022/03/16/2022316-%E4%BB%8E%E5%A4%A7%E4%B8%89%E5%88%B0%E6%B1%82%E8%81%8C-2022.3.16%EF%BC%8812%EF%BC%89/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '从大三到求职 2022.3.16（12）',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-03-16 20:05:01'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sviptzk/StaticFile_HEXO@latest/butterfly/css/pool.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sviptzk/StaticFile_HEXO@latest/butterfly/css/iconfont.min.css"><meta name="generator" content="Hexo 5.4.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20211211144955.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">17</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/%E9%9F%B3%E4%B9%90"><i class="fa-fw /music/"></i><span> 0</span></a></li><li><a class="site-page child" href="/%E7%94%B5%E5%BD%B1"><i class="fa-fw /movies/"></i><span> 1</span></a></li><li><a class="site-page child" href="/%E7%85%A7%E7%89%87"><i class="fa-fw /Gallery/"></i><span> 2</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/forest-6812584_1920.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Hexo</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/%E9%9F%B3%E4%B9%90"><i class="fa-fw /music/"></i><span> 0</span></a></li><li><a class="site-page child" href="/%E7%94%B5%E5%BD%B1"><i class="fa-fw /movies/"></i><span> 1</span></a></li><li><a class="site-page child" href="/%E7%85%A7%E7%89%87"><i class="fa-fw /Gallery/"></i><span> 2</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">从大三到求职 2022.3.16（12）</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-03-15T16:05:25.000Z" title="发表于 2022-03-16 00:05:25">2022-03-16</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-03-16T12:05:01.246Z" title="更新于 2022-03-16 20:05:01">2022-03-16</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="从大三到求职 2022.3.16（12）"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="从大三到求职-2022-3-16（12）"><a href="#从大三到求职-2022-3-16（12）" class="headerlink" title="从大三到求职 2022.3.16（12）"></a>从大三到求职 2022.3.16（12）</h1><p>今天学习的内容：</p>
+<ol>
+<li>垃圾回收</li>
+</ol>
+<hr>
+<h2 id="一、垃圾回收"><a href="#一、垃圾回收" class="headerlink" title="一、垃圾回收"></a>一、垃圾回收</h2><h3 id="1、垃圾的概念"><a href="#1、垃圾的概念" class="headerlink" title="1、垃圾的概念"></a>1、垃圾的概念</h3><p><strong>首先，什么是垃圾呢？</strong></p>
+<p>垃圾就是不会再被使用的对象，我们称之为垃圾。</p>
+<p><strong>怎么鉴别垃圾呢？</strong></p>
+<p>最传统的鉴别是否是垃圾的方法，就是加一个引用计数器，当计数器为0时，他就是垃圾了，需要被回收。</p>
+<p>但是这种方法局限性很大，如果出现两个对象互相调用，那么就永远无法被回收。</p>
+<p><strong>那么更好的方法是？</strong></p>
+<p>而在JVM中，我们一般使用可达性性算法进行垃圾的鉴别。</p>
+<p>在JVM的可达性算法下，没有被GCRoots对象的引用链所引用的对象，都视为死亡对象，会被垃圾处理器处理。</p>
+<p><strong>知识点延伸：</strong></p>
+<p><strong>那么哪些对象可以看作 GCRoots呢？</strong></p>
+<ol>
+<li>栈帧中的的本地变量表  引用的对象</li>
+<li>静态变量（因为静态变量是全局的，所以它是有可能用到的）引用的对象</li>
+<li>本地方法栈（Native）方法 引用的对象</li>
+</ol>
+<p><em><strong>可达性算法又是什么呢？</strong></em></p>
+<p>可达性算法就是以GCRoots为根节点，去根据这些节点的引用关系向下进行搜索，这个搜索所走过的路径，就是引用链。</p>
+<p>没有被 引用链 关联联到的对象（不可达），就是 可以被回收的对象（不会再被使用的对象/死对象）</p>
+<p>那么通过上面的分析我们知道，对象的存活与否，关键都在于 对象的 <strong>引用</strong></p>
+<p><strong>引用又分为什么类型？</strong></p>
+<p>在JDK1.2之后，Java将引用的关系分为四种，分别为：<strong>强 软 弱 虚</strong></p>
+<p>1、强引用：最传统最OG的引用关系，是最普遍的引用关系，类似于 new 一个对象，任何时候，只要这种引用关系只要还存在，这个对象就一定不会被回收。</p>
+<p>2、软引用：有用，但非必需的引用。这种引用只会在不得不需要清理堆空间的时候（发生OOM）才会被回收。如果在回收过这些对象之后还没有足够的内存，才会抛出OOM。</p>
+<p>3、弱引用：非必须的引用。这种引用比软引用更弱一些，只能在一次回收之前存活。无论下次的回收是否会发生OOM，都会被回收。</p>
+<p>4、虚引用：是最弱的引用关系。一定会被回收，而且不能被实例化，只是在被回收时收到一个系统通知告知它被回收了</p>
+<h3 id="2、垃圾收集算法"><a href="#2、垃圾收集算法" class="headerlink" title="2、垃圾收集算法"></a>2、垃圾收集算法</h3><p>所有的垃圾收集算法，都立足于分代收集理论。</p>
+<p>它建立在两个分代假说之上：</p>
+<ol>
+<li>绝大多数对象都是朝生暮死 </li>
+<li>熬过越多次垃圾回收的对象就越难以消亡</li>
+</ol>
+<p>这两个分代假说共同奠定了垃圾收集器的一致性设计原则：收集器应该将JAVA堆划分为不同的区域，然后根据对象的年龄将其分配到不同的区域进行储存，并进行针对化的回收。</p>
+<p>显而易见的是，如果一个区域的对象大多数都是朝生暮死的，那么我们只需要去关注如何把少量的存活对象标记出来即可。同理可得，把能熬过多次回收的对象集体存放，那么虚拟机对他的回收次数就可以不那么多，显著的降低了开销。</p>
+<p>因为分出了不同的区域，jvm就可以对每一个区域进行单独的垃圾回收，这就引申出了针对不同区域特点而生的垃圾回收器。</p>
+<p>而垃圾回收器又基于三个最基本的垃圾回收算法：</p>
+<ol>
+<li>标记-清除 算法</li>
+<li>标记-复制 算法</li>
+<li>标记-整理 算法</li>
+</ol>
+<p>商业的jvm中，设计者把对象分为 <strong>新生代</strong> 与 <strong>老年代</strong> 两个区域。</p>
+<p>顾名思义，每次垃圾收集之后都会有大量的对象被回收，那么如果有对象在一次回收后任然存活，那么他们的年龄就会+1，直到15（默认）岁后，就会进入老年代。（这个值可以通过设置jvm参数：“-XX:MaxTenuringThreshold” 来改变）</p>
+<p>跨代引用假说：新生代引用了老年代，使用记忆集和卡表解决。</p>
+<h4 id="（1）、标记-清除算法"><a href="#（1）、标记-清除算法" class="headerlink" title="（1）、标记-清除算法"></a>（1）、标记-清除算法</h4><p>最基础的垃圾回收算法，如同他的名字一样，算法分为 “标记” 和 “清除” 两个阶段：首先标记出所有需要回收的对象，然后再标记完成后，统一进行回收。也可以反过来，标记所有存活的对象，标记完成后，统一回收未被标记的对象。</p>
+<p>缺点有两个:</p>
+<ol>
+<li>执行效率不稳定，因为JAVA堆中有大量对象，而且大多数需要回收，这时候必须进行大量标记和清除动作，导致这两个动作的效率随着垃圾数量的增长而下降。</li>
+<li>内存碎片化问题，因为在标记清楚后会产生很多不连续的内存碎片，太多之后当程序需要大片内存分配对象时会受到影响而不得不触发另外一次收集，大大降低效率。</li>
+</ol>
+<h4 id="（2）、标记-复制算法"><a href="#（2）、标记-复制算法" class="headerlink" title="（2）、标记-复制算法"></a>（2）、标记-复制算法</h4><p>又称为复制算法，是为了解决标记清除面对大量需要回收对象效率低而生的，核心思想就是把存活的对象标记出来复制到另一块区域，然后把当前区域直接全部清空，这样既不会有碎片，也不会因为对象过多而降低效率。</p>
+<p>根据研究，98%的对象活不过第一轮收集，因此不需要按照1:1的比例来划分新生代和老年代的空间。</p>
+<p>目前主流方案是 分为3个区域，分别是一个 Survivor区和两个Eden区，比例为 8:1:1，每次分配内存只使用 Survivor区和一块Eden区，在需要回收的时候把这两块区域的存活对象标记并复制到另一块Eden区。</p>
+<h4 id="（3）、标记-整理算法"><a href="#（3）、标记-整理算法" class="headerlink" title="（3）、标记-整理算法"></a>（3）、标记-整理算法</h4><p>复制算法在对象存活率高的时候，效率就会降低。而且针对老年代绝大多数对象都存活的场景，明显就不适用了。</p>
+<p>标记整理算法的本质就是把存活的对象标记出来，然后推向内存的一边，清理掉边界以外所有对象，这样就不会有内存碎片，而且就算存活数量很多，也不用像复制算法一样大量的复制</p>
+<p>从停顿时间来看，复制停顿很短，从吞吐量来看，移动对象更好。</p>
+<p>所以如果注重停顿时间，就选择复制算法的收集器，类似CMS</p>
+<p>如果注重吞吐量，就用整理算法的收集器，类似 Parallel Old 收集器</p>
+<h3 id="3、垃圾收集器"><a href="#3、垃圾收集器" class="headerlink" title="3、垃圾收集器"></a>3、垃圾收集器</h3><h4 id="CMS收集器"><a href="#CMS收集器" class="headerlink" title="CMS收集器"></a>CMS收集器</h4><p>是一种以追求超低停顿为主的垃圾收集器</p>
+<p>包括以下几个阶段：</p>
+<ol>
+<li>初始标记</li>
+<li>并发标记</li>
+<li>重新标记</li>
+<li>并发清除</li>
+</ol>
+<p>其中 初始标记  和  重新标记 两个步骤依然要 SWT（Stop The World）</p>
+<p><img src="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/img/image-20220316195224123.png" alt="image-20220316195224123"></p>
+<p>可以看到绝大多数操作都是和用户线程一起执行的，只有重新标记是单独swt，因为需要解决并发标记中的引用变化问题（三色标记），</p>
+<p>但是这一次重新标记的时间还是要远小于并发标记的时间的，所以整体上CMS是非常低延时的垃圾收集器。</p>
+<p>但是CMS不能解决浮动垃圾问题，因为在并发清除时用户线程还在运行，还会产生新的垃圾，而这些垃圾无法在本次收集中被收集，所以有可能因为浮动垃圾过多而导致一次完全 SWT 的 Full GC 的产生。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Radeno</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2022/03/16/2022316-%E4%BB%8E%E5%A4%A7%E4%B8%89%E5%88%B0%E6%B1%82%E8%81%8C-2022.3.16%EF%BC%8812%EF%BC%89/">http://example.com/2022/03/16/2022316-%E4%BB%8E%E5%A4%A7%E4%B8%89%E5%88%B0%E6%B1%82%E8%81%8C-2022.3.16%EF%BC%8812%EF%BC%89/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">Hexo</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/forest-6812584_1920.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2022/03/14/2022314-%E4%BB%8E%E5%A4%A7%E4%B8%89%E5%88%B0%E6%B1%82%E8%81%8C-2022.3.14%EF%BC%8811%EF%BC%89/"><img class="next-cover" src="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/forest-6812584_1920.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">从大三到求职 2022.3.14（11）</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20211211144955.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Radeno</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">17</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Darlinginthe02"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">欢迎来到Radeno的博客</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%8E%E5%A4%A7%E4%B8%89%E5%88%B0%E6%B1%82%E8%81%8C-2022-3-16%EF%BC%8812%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">从大三到求职 2022.3.16（12）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6"><span class="toc-number">1.1.</span> <span class="toc-text">一、垃圾回收</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81%E5%9E%83%E5%9C%BE%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="toc-number">1.1.1.</span> <span class="toc-text">1、垃圾的概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E7%AE%97%E6%B3%95"><span class="toc-number">1.1.2.</span> <span class="toc-text">2、垃圾收集算法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%881%EF%BC%89%E3%80%81%E6%A0%87%E8%AE%B0-%E6%B8%85%E9%99%A4%E7%AE%97%E6%B3%95"><span class="toc-number">1.1.2.1.</span> <span class="toc-text">（1）、标记-清除算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%882%EF%BC%89%E3%80%81%E6%A0%87%E8%AE%B0-%E5%A4%8D%E5%88%B6%E7%AE%97%E6%B3%95"><span class="toc-number">1.1.2.2.</span> <span class="toc-text">（2）、标记-复制算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%883%EF%BC%89%E3%80%81%E6%A0%87%E8%AE%B0-%E6%95%B4%E7%90%86%E7%AE%97%E6%B3%95"><span class="toc-number">1.1.2.3.</span> <span class="toc-text">（3）、标记-整理算法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%E3%80%81%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8"><span class="toc-number">1.1.3.</span> <span class="toc-text">3、垃圾收集器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#CMS%E6%94%B6%E9%9B%86%E5%99%A8"><span class="toc-number">1.1.3.1.</span> <span class="toc-text">CMS收集器</span></a></li></ol></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/03/16/2022316-%E4%BB%8E%E5%A4%A7%E4%B8%89%E5%88%B0%E6%B1%82%E8%81%8C-2022.3.16%EF%BC%8812%EF%BC%89/" title="从大三到求职 2022.3.16（12）"><img src="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/forest-6812584_1920.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="从大三到求职 2022.3.16（12）"/></a><div class="content"><a class="title" href="/2022/03/16/2022316-%E4%BB%8E%E5%A4%A7%E4%B8%89%E5%88%B0%E6%B1%82%E8%81%8C-2022.3.16%EF%BC%8812%EF%BC%89/" title="从大三到求职 2022.3.16（12）">从大三到求职 2022.3.16（12）</a><time datetime="2022-03-15T16:05:25.000Z" title="发表于 2022-03-16 00:05:25">2022-03-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/03/14/2022314-%E4%BB%8E%E5%A4%A7%E4%B8%89%E5%88%B0%E6%B1%82%E8%81%8C-2022.3.14%EF%BC%8811%EF%BC%89/" title="从大三到求职 2022.3.14（11）"><img src="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/forest-6812584_1920.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="从大三到求职 2022.3.14（11）"/></a><div class="content"><a class="title" href="/2022/03/14/2022314-%E4%BB%8E%E5%A4%A7%E4%B8%89%E5%88%B0%E6%B1%82%E8%81%8C-2022.3.14%EF%BC%8811%EF%BC%89/" title="从大三到求职 2022.3.14（11）">从大三到求职 2022.3.14（11）</a><time datetime="2022-03-13T16:05:25.000Z" title="发表于 2022-03-14 00:05:25">2022-03-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/03/10/2022310-%E4%BB%8E%E5%A4%A7%E4%B8%89%E5%88%B0%E6%B1%82%E8%81%8C-2022.3.10%EF%BC%8810%EF%BC%89/" title="从大三到求职 2022.3.10（10）"><img src="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/forest-6812584_1920.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="从大三到求职 2022.3.10（10）"/></a><div class="content"><a class="title" href="/2022/03/10/2022310-%E4%BB%8E%E5%A4%A7%E4%B8%89%E5%88%B0%E6%B1%82%E8%81%8C-2022.3.10%EF%BC%8810%EF%BC%89/" title="从大三到求职 2022.3.10（10）">从大三到求职 2022.3.10（10）</a><time datetime="2022-03-09T16:05:25.000Z" title="发表于 2022-03-10 00:05:25">2022-03-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/03/09/202239-%E4%BB%8E%E5%A4%A7%E4%B8%89%E5%88%B0%E6%B1%82%E8%81%8C-2022.3.9%EF%BC%889%EF%BC%89/" title="从大三到求职 2022.3.9（9）"><img src="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/forest-6812584_1920.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="从大三到求职 2022.3.9（9）"/></a><div class="content"><a class="title" href="/2022/03/09/202239-%E4%BB%8E%E5%A4%A7%E4%B8%89%E5%88%B0%E6%B1%82%E8%81%8C-2022.3.9%EF%BC%889%EF%BC%89/" title="从大三到求职 2022.3.9（9）">从大三到求职 2022.3.9（9）</a><time datetime="2022-03-08T16:05:25.000Z" title="发表于 2022-03-09 00:05:25">2022-03-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/03/08/202238-%E4%BB%8E%E5%A4%A7%E4%B8%89%E5%88%B0%E6%B1%82%E8%81%8C-2022.3.8%EF%BC%888%EF%BC%89/" title="从大三到求职 2022.3.8（8）"><img src="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/forest-6812584_1920.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="从大三到求职 2022.3.8（8）"/></a><div class="content"><a class="title" href="/2022/03/08/202238-%E4%BB%8E%E5%A4%A7%E4%B8%89%E5%88%B0%E6%B1%82%E8%81%8C-2022.3.8%EF%BC%888%EF%BC%89/" title="从大三到求职 2022.3.8（8）">从大三到求职 2022.3.8（8）</a><time datetime="2022-03-07T16:05:25.000Z" title="发表于 2022-03-08 00:05:25">2022-03-08</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By Radeno</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script src="https://cdn.jsdelivr.net/gh/sviptzk/StaticFile_HEXO@latest/butterfly/js/pool.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
