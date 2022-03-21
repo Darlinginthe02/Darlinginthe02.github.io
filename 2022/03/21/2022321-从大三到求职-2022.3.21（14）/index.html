@@ -1,0 +1,219 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>从大三到求职 2022.3.21（14） | Hexo</title><meta name="author" content="Radeno"><meta name="copyright" content="Radeno"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="从大三到求职 2022.3.21（14）1、双重检查锁 2、Docker File  3、Docker Compose 4、Netty 5、HashMap  1、关于双重检查加锁（DCL）的理解双重检查加锁的一般形式： 123456789101112class SomeClass &amp;#123;    private Resource resource &#x3D; null;    public Resou">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从大三到求职 2022.3.21（14）">
+<meta property="og:url" content="http://example.com/2022/03/21/2022321-%E4%BB%8E%E5%A4%A7%E4%B8%89%E5%88%B0%E6%B1%82%E8%81%8C-2022.3.21%EF%BC%8814%EF%BC%89/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="从大三到求职 2022.3.21（14）1、双重检查锁 2、Docker File  3、Docker Compose 4、Netty 5、HashMap  1、关于双重检查加锁（DCL）的理解双重检查加锁的一般形式： 123456789101112class SomeClass &amp;#123;    private Resource resource &#x3D; null;    public Resou">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/forest-6812584_1920.jpg">
+<meta property="article:published_time" content="2022-03-20T16:05:25.000Z">
+<meta property="article:modified_time" content="2022-03-21T14:22:57.602Z">
+<meta property="article:author" content="Radeno">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/forest-6812584_1920.jpg"><link rel="shortcut icon" href="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/%E7%BC%96%E7%A8%8B.png"><link rel="canonical" href="http://example.com/2022/03/21/2022321-%E4%BB%8E%E5%A4%A7%E4%B8%89%E5%88%B0%E6%B1%82%E8%81%8C-2022.3.21%EF%BC%8814%EF%BC%89/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '从大三到求职 2022.3.21（14）',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-03-21 22:22:57'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sviptzk/StaticFile_HEXO@latest/butterfly/css/pool.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sviptzk/StaticFile_HEXO@latest/butterfly/css/iconfont.min.css"><meta name="generator" content="Hexo 5.4.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20211211144955.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">19</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/%E9%9F%B3%E4%B9%90"><i class="fa-fw /music/"></i><span> 0</span></a></li><li><a class="site-page child" href="/%E7%94%B5%E5%BD%B1"><i class="fa-fw /movies/"></i><span> 1</span></a></li><li><a class="site-page child" href="/%E7%85%A7%E7%89%87"><i class="fa-fw /Gallery/"></i><span> 2</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/forest-6812584_1920.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Hexo</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/%E9%9F%B3%E4%B9%90"><i class="fa-fw /music/"></i><span> 0</span></a></li><li><a class="site-page child" href="/%E7%94%B5%E5%BD%B1"><i class="fa-fw /movies/"></i><span> 1</span></a></li><li><a class="site-page child" href="/%E7%85%A7%E7%89%87"><i class="fa-fw /Gallery/"></i><span> 2</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">从大三到求职 2022.3.21（14）</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-03-20T16:05:25.000Z" title="发表于 2022-03-21 00:05:25">2022-03-21</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-03-21T14:22:57.602Z" title="更新于 2022-03-21 22:22:57">2022-03-21</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="从大三到求职 2022.3.21（14）"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="从大三到求职-2022-3-21（14）"><a href="#从大三到求职-2022-3-21（14）" class="headerlink" title="从大三到求职 2022.3.21（14）"></a>从大三到求职 2022.3.21（14）</h1><p>1、双重检查锁</p>
+<p>2、Docker File </p>
+<p>3、Docker Compose</p>
+<p>4、Netty</p>
+<p>5、HashMap</p>
+<hr>
+<h2 id="1、关于双重检查加锁（DCL）的理解"><a href="#1、关于双重检查加锁（DCL）的理解" class="headerlink" title="1、关于双重检查加锁（DCL）的理解"></a>1、关于双重检查加锁（DCL）的理解</h2><p>双重检查加锁的一般形式：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SomeClass</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Resource resource = <span class="keyword">null</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Resource <span class="title">getResource</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (resource == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">synchronized</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (resource == <span class="keyword">null</span>)</span><br><span class="line">                    resource = <span class="keyword">new</span> Resource();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> resource;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/img/20180906173039706" alt="img"></p>
+<p><img src="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/img/20180906173039364" alt="img"></p>
+<p>问题的关键在于，线程可能看到一个仅被部分构造的Resource;具体解释如下：</p>
+<p>Happens-Before原则</p>
+<p><img src="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/img/20180906173626968" alt="img"></p>
+<p>此原则用于检测某操作<strong>是否能进行重排序</strong>，而重排序是编译器对JVM字节码进行重排序的操作在这里关于“操作”两个字定义的很模糊（相当于没有定义），那什么是操作呢，什么又是一个不可再分的原子操作呢；对JVM层面来说，一个JVM字节码就是一个对于JVM执行指令不能再分的原子操作，且上下字节码的操作结果完全互相可见，再往下可能会有更细粒度的字节码以及机器指令，但是现在只讨论JVM字节码；在java语言中，对基本变量int char等的读写是一个原子操作，编译成字节码只有一条(这才是原因)，因此很多书上经常写关于基本变量的读写操作来作为例子，很久之前我还以为一条java代码是一个原子操作。。。</p>
+<p>在这里定义的操作的含义就是一条java代码（有时候还需要根据具体语境具体分析其到底指的是什么）</p>
+<p><img src="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/img/20180906174816252" alt="img"></p>
+<p>仅仅一个new Object（）对象都有好几条JVM字节码与之对应，更别说一个复杂耗时的大对象的new或者初始化了，上面讲到，当两个操作不满足Happens-before时，JVM将对其进行重排序，对于最上面的那个DCL例子而言，线程A最先进来发现resource为null,因此进入同步块，再次观测resource==null,此时进行初始化，接下来的操作JVM可能会对其进行重排序，</p>
+<p>我们不妨假设是这样一种执行顺序，1.为对象分配内存 2.调用构造函数 3.初始化成员变量 </p>
+<p>再假设当操作1完成时，发生了线程切换（这个例子很极端，一般不会只执行一条指令就会发生切换，在此只为说明情况而设），线程B进入了此方法，他首先观察resource,发现resource==null为false,为什么呢？想想==含义，其内部是判断对象地址是不是null,此时已经为其分配了内存，有了地址，此时将会resource==null判断为true了，接着线程B将会返回一个尚未被构造完成的resource引用，此时DCL broken….</p>
+<p>接着java并发编程实战中说将resource域声明为volatile的，私以为这样做也是不怎么可取的，因为volatile这个东西只是说对读写操作的前后可见性，但是没说对volatile声明的对象其成员属性也是这样的，除非你声明的volatile对象其内部所有属性都是volatile的，你可以一试。而且这个关键字很多博客说是依赖于JVM的，所以不要对其做出过多假设（虽然大多数人都是一个JVM平台的）；</p>
+<p>毕竟这本书也给了相应的改进措施-延长初始化占位类模式，为什么不用呢///</p>
+<hr>
+<h2 id="2、Docker-File"><a href="#2、Docker-File" class="headerlink" title="2、Docker File"></a>2、Docker File</h2><p>文件  Dockerfile    Docker镜像的描述文件   作用: 用来构建docker镜像的文件</p>
+<p>Dockerfile可以认为是<strong>Docker镜像的描述文件，是由一系列命令和参数构成的脚本</strong>。主要作用是<strong>用来构建docker镜像的构建文件</strong>。</p>
+<p>比如我们自己写的项目，就可以通过编写 docker file 来打包成一个镜像，从而使用docker进行发布</p>
+<img src="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/img/image-20220321205122530.png" alt="image-20220321205122530" style="zoom: 50%;" />
+
+<p><strong>通过架构图可以看出通过DockerFile可以直接构建镜像</strong></p>
+<p>Dockerfile解析过程</p>
+<p><img src="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/img/image-20220321205201914.png" alt="image-20220321205201914"></p>
+<hr>
+<h2 id="3、Docker-Compose"><a href="#3、Docker-Compose" class="headerlink" title="3、Docker Compose"></a>3、Docker Compose</h2><p>Docker Compse 的作用是对Docker容器集群的快速编排。</p>
+<p>比如我们一个项目，除了项目本身，还需要 类似 mysql ，redis，es，mq等中间件的容器，这时候Docker Compose 就可以派上用场。</p>
+<img src="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/img/image-20220321204244938.png" alt="image-20220321204244938" style="zoom:33%;" />
+
+<p>这样如果正常我们想启动app这个镜像，我们还需要把每个中间件单独启动，这是非常麻烦的</p>
+<img src="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/img/image-20220321204330446.png" alt="image-20220321204330446" style="zoom:33%;" />
+
+<p>如果我们把项目镜像和这些中间件打包在一起，每次启动全部一起跟着启动，这样不就更好吗</p>
+<p>Compose正是为了解决这个问题</p>
+<p>Compose 的定位是 <code>定义和运行多个Docker容器的应用</code> ，它允许用户通过一个单独的 <code>docker-compose.yml</code> 模板文件来定义一组相关联的应用容器为一个项目。</p>
+<p><code>Compose</code> 中有两个重要的概念：</p>
+<ul>
+<li>服务 (<code>service</code>)：一个应用的容器，实际上可以包括若干运行相同镜像的容器实例。（比如我们使用docker file 构建的容器 ）</li>
+<li>项目 (<code>project</code>)：由一组关联的应用容器组成的一个完整业务单元，在 <code>docker-compose.yml</code> 文件中定义。（就是我们画好框的部分）</li>
+</ul>
+<p>所以以后我们项目中每一个项目都应该有独立的<code> docker-compose.yml</code></p>
+<p>只要有这个文件，docker compose 就认为你是一个项目</p>
+<p><code>Compose</code> 的默认管理对象是项目，通过子命令对项目中的一组容器进行便捷地生命周期管理。</p>
+<p><code>Compose</code> 项目由 Python 编写，实现上调用了 Docker 服务提供的 API 来对容器进行管理。因此，只要所操作的平台支持 Docker API，就可以在其上利用 <code>Compose</code> 来进行编排管理。</p>
+<hr>
+<h2 id="4、Netty"><a href="#4、Netty" class="headerlink" title="4、Netty"></a>4、Netty</h2><p>Netty 是一个  基于NIO 模型的高性能PRC框架，我们可以认为他是对NIO模型的一个封装，提供了简单易用的api去快速开发网络程序。</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/yangfanend/article/details/55100327">https://blog.csdn.net/yangfanend/article/details/55100327</a></p>
+<hr>
+<h2 id="5、HashMap"><a href="#5、HashMap" class="headerlink" title="5、HashMap"></a>5、HashMap</h2><p>我之前一直知道HashMap的底层是 Node数组 + 链表或红黑树，但不清楚他们分别用来存什么</p>
+<p>HashMap的主干是一个 Entry 数组 ，Entry 是HashMap 的基本组成单元，每一个Entry 数组都包含一个K-V键值对</p>
+<p>数组是HashMap的主体，链表则是主要为了解决哈希冲突而存在的。</p>
+<p>当我们在往里 put元素 的时候，添加的元素虽然key值可能不同，但是他们的hash码可能是相同的，这就是哈希冲突</p>
+<p>所以在添加元素时，首先判断是否存在hashcode相同的key元素，如果存在相同的key和相同的hash，则新值覆盖老值，返回旧值。</p>
+<p>如果key不同，hashcode相同，就产生hash冲突，使用<strong>链地址法</strong>解决</p>
+<h3 id="链表如何解决hash冲突？"><a href="#链表如何解决hash冲突？" class="headerlink" title="链表如何解决hash冲突？"></a>链表如何解决hash冲突？</h3><p><img src="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/img/image-20220321214007223.png" alt="image-20220321214007223"></p>
+<p><strong>key：put方法的key。</strong></p>
+<p><strong>value：put方法的value。</strong></p>
+<p><strong>next：因为存在相同的hashcode，不同的key，所以next是下一个entry的地址，也就是位置。</strong></p>
+<p>每一个entry数组都有可能产生链表，只要产生了哈希冲突，都会在后面形成一个链表来储存发生冲突的值。</p>
+<p>为了解决冲突，一个hash中存放的链表，元素的实际位置在数组的链表上，所以相同hashCode的不同元素可以存储在同一位置。</p>
+<p>也就是说，在发生冲突的 entry数组中，以相同的hashcode的key 为 key，然后真正的value 存在链表中。</p>
+<p>有的时候冲突可能比较多，所以此时的查询一个 key 的过程会变成了，先计算 key 的哈希值，然后发现这个值对应的位置是一条链表，然后再遍历这个链表，直到找到（或者找不到）对应的 key。</p>
+<p>这样一来，如果冲突很多的话，多了这个遍历链表的过程，查询效率就降低了，所以在 JDK1.8 之后引入了一个优化，如果这个冲突的链表比较多的话（貌似是多于 8 个），就把这个链表转换成红黑树，这样的话，可以在 M 个冲突的值中使用 O(logM) 的时间复杂度找到对应的 key。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Radeno</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2022/03/21/2022321-%E4%BB%8E%E5%A4%A7%E4%B8%89%E5%88%B0%E6%B1%82%E8%81%8C-2022.3.21%EF%BC%8814%EF%BC%89/">http://example.com/2022/03/21/2022321-%E4%BB%8E%E5%A4%A7%E4%B8%89%E5%88%B0%E6%B1%82%E8%81%8C-2022.3.21%EF%BC%8814%EF%BC%89/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">Hexo</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/forest-6812584_1920.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2022/03/17/2022317-%E4%BB%8E%E5%A4%A7%E4%B8%89%E5%88%B0%E6%B1%82%E8%81%8C-2022.3.17%EF%BC%8813%EF%BC%89/"><img class="next-cover" src="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/forest-6812584_1920.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">从大三到求职 2022.3.17（13）</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20211211144955.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Radeno</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">19</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Darlinginthe02"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">欢迎来到Radeno的博客</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%8E%E5%A4%A7%E4%B8%89%E5%88%B0%E6%B1%82%E8%81%8C-2022-3-21%EF%BC%8814%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">从大三到求职 2022.3.21（14）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81%E5%85%B3%E4%BA%8E%E5%8F%8C%E9%87%8D%E6%A3%80%E6%9F%A5%E5%8A%A0%E9%94%81%EF%BC%88DCL%EF%BC%89%E7%9A%84%E7%90%86%E8%A7%A3"><span class="toc-number">1.1.</span> <span class="toc-text">1、关于双重检查加锁（DCL）的理解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81Docker-File"><span class="toc-number">1.2.</span> <span class="toc-text">2、Docker File</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3%E3%80%81Docker-Compose"><span class="toc-number">1.3.</span> <span class="toc-text">3、Docker Compose</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4%E3%80%81Netty"><span class="toc-number">1.4.</span> <span class="toc-text">4、Netty</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5%E3%80%81HashMap"><span class="toc-number">1.5.</span> <span class="toc-text">5、HashMap</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%93%BE%E8%A1%A8%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3hash%E5%86%B2%E7%AA%81%EF%BC%9F"><span class="toc-number">1.5.1.</span> <span class="toc-text">链表如何解决hash冲突？</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/03/21/2022321-%E4%BB%8E%E5%A4%A7%E4%B8%89%E5%88%B0%E6%B1%82%E8%81%8C-2022.3.21%EF%BC%8814%EF%BC%89/" title="从大三到求职 2022.3.21（14）"><img src="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/forest-6812584_1920.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="从大三到求职 2022.3.21（14）"/></a><div class="content"><a class="title" href="/2022/03/21/2022321-%E4%BB%8E%E5%A4%A7%E4%B8%89%E5%88%B0%E6%B1%82%E8%81%8C-2022.3.21%EF%BC%8814%EF%BC%89/" title="从大三到求职 2022.3.21（14）">从大三到求职 2022.3.21（14）</a><time datetime="2022-03-20T16:05:25.000Z" title="发表于 2022-03-21 00:05:25">2022-03-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/03/17/2022317-%E4%BB%8E%E5%A4%A7%E4%B8%89%E5%88%B0%E6%B1%82%E8%81%8C-2022.3.17%EF%BC%8813%EF%BC%89/" title="从大三到求职 2022.3.17（13）"><img src="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/forest-6812584_1920.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="从大三到求职 2022.3.17（13）"/></a><div class="content"><a class="title" href="/2022/03/17/2022317-%E4%BB%8E%E5%A4%A7%E4%B8%89%E5%88%B0%E6%B1%82%E8%81%8C-2022.3.17%EF%BC%8813%EF%BC%89/" title="从大三到求职 2022.3.17（13）">从大三到求职 2022.3.17（13）</a><time datetime="2022-03-16T16:05:25.000Z" title="发表于 2022-03-17 00:05:25">2022-03-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/03/16/2022316-%E4%BB%8E%E5%A4%A7%E4%B8%89%E5%88%B0%E6%B1%82%E8%81%8C-2022.3.16%EF%BC%8812%EF%BC%89/" title="从大三到求职 2022.3.16（12）"><img src="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/forest-6812584_1920.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="从大三到求职 2022.3.16（12）"/></a><div class="content"><a class="title" href="/2022/03/16/2022316-%E4%BB%8E%E5%A4%A7%E4%B8%89%E5%88%B0%E6%B1%82%E8%81%8C-2022.3.16%EF%BC%8812%EF%BC%89/" title="从大三到求职 2022.3.16（12）">从大三到求职 2022.3.16（12）</a><time datetime="2022-03-15T16:05:25.000Z" title="发表于 2022-03-16 00:05:25">2022-03-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/03/14/2022314-%E4%BB%8E%E5%A4%A7%E4%B8%89%E5%88%B0%E6%B1%82%E8%81%8C-2022.3.14%EF%BC%8811%EF%BC%89/" title="从大三到求职 2022.3.14（11）"><img src="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/forest-6812584_1920.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="从大三到求职 2022.3.14（11）"/></a><div class="content"><a class="title" href="/2022/03/14/2022314-%E4%BB%8E%E5%A4%A7%E4%B8%89%E5%88%B0%E6%B1%82%E8%81%8C-2022.3.14%EF%BC%8811%EF%BC%89/" title="从大三到求职 2022.3.14（11）">从大三到求职 2022.3.14（11）</a><time datetime="2022-03-13T16:05:25.000Z" title="发表于 2022-03-14 00:05:25">2022-03-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/03/10/2022310-%E4%BB%8E%E5%A4%A7%E4%B8%89%E5%88%B0%E6%B1%82%E8%81%8C-2022.3.10%EF%BC%8810%EF%BC%89/" title="从大三到求职 2022.3.10（10）"><img src="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/forest-6812584_1920.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="从大三到求职 2022.3.10（10）"/></a><div class="content"><a class="title" href="/2022/03/10/2022310-%E4%BB%8E%E5%A4%A7%E4%B8%89%E5%88%B0%E6%B1%82%E8%81%8C-2022.3.10%EF%BC%8810%EF%BC%89/" title="从大三到求职 2022.3.10（10）">从大三到求职 2022.3.10（10）</a><time datetime="2022-03-09T16:05:25.000Z" title="发表于 2022-03-10 00:05:25">2022-03-10</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By Radeno</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script src="https://cdn.jsdelivr.net/gh/sviptzk/StaticFile_HEXO@latest/butterfly/js/pool.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
