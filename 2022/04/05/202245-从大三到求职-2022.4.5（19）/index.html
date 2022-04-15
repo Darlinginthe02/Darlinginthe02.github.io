@@ -1,0 +1,236 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>从大三到求职 2022.4.5（19） | Hexo</title><meta name="author" content="Radeno"><meta name="copyright" content="Radeno"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="从大三到求职 2022.4.5（19）今天学习的内容：  golang入门   一、GoLang入门1、语法特点以helloworld代码举例 123456789&#x2F;&#x2F;程序的包名package main&#x2F;&#x2F;导包import &quot;fmt&quot;func main()&amp;#123;   fmt.Println(&quot;hello world!!!&quot;)&amp;#125;   go语言可以">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从大三到求职 2022.4.5（19）">
+<meta property="og:url" content="http://example.com/2022/04/05/202245-%E4%BB%8E%E5%A4%A7%E4%B8%89%E5%88%B0%E6%B1%82%E8%81%8C-2022.4.5%EF%BC%8819%EF%BC%89/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="从大三到求职 2022.4.5（19）今天学习的内容：  golang入门   一、GoLang入门1、语法特点以helloworld代码举例 123456789&#x2F;&#x2F;程序的包名package main&#x2F;&#x2F;导包import &quot;fmt&quot;func main()&amp;#123;   fmt.Println(&quot;hello world!!!&quot;)&amp;#125;   go语言可以">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/forest-6812584_1920.jpg">
+<meta property="article:published_time" content="2022-04-04T16:05:25.000Z">
+<meta property="article:modified_time" content="2022-04-05T16:40:26.156Z">
+<meta property="article:author" content="Radeno">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/forest-6812584_1920.jpg"><link rel="shortcut icon" href="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/%E7%BC%96%E7%A8%8B.png"><link rel="canonical" href="http://example.com/2022/04/05/202245-%E4%BB%8E%E5%A4%A7%E4%B8%89%E5%88%B0%E6%B1%82%E8%81%8C-2022.4.5%EF%BC%8819%EF%BC%89/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '从大三到求职 2022.4.5（19）',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-04-06 00:40:26'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sviptzk/StaticFile_HEXO@latest/butterfly/css/pool.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sviptzk/StaticFile_HEXO@latest/butterfly/css/iconfont.min.css"><meta name="generator" content="Hexo 5.4.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20211211144955.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">33</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/%E9%9F%B3%E4%B9%90"><i class="fa-fw /music/"></i><span> 0</span></a></li><li><a class="site-page child" href="/%E7%94%B5%E5%BD%B1"><i class="fa-fw /movies/"></i><span> 1</span></a></li><li><a class="site-page child" href="/%E7%85%A7%E7%89%87"><i class="fa-fw /Gallery/"></i><span> 2</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/forest-6812584_1920.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Hexo</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/%E9%9F%B3%E4%B9%90"><i class="fa-fw /music/"></i><span> 0</span></a></li><li><a class="site-page child" href="/%E7%94%B5%E5%BD%B1"><i class="fa-fw /movies/"></i><span> 1</span></a></li><li><a class="site-page child" href="/%E7%85%A7%E7%89%87"><i class="fa-fw /Gallery/"></i><span> 2</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">从大三到求职 2022.4.5（19）</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-04-04T16:05:25.000Z" title="发表于 2022-04-05 00:05:25">2022-04-05</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-04-05T16:40:26.156Z" title="更新于 2022-04-06 00:40:26">2022-04-06</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="从大三到求职 2022.4.5（19）"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="从大三到求职-2022-4-5（19）"><a href="#从大三到求职-2022-4-5（19）" class="headerlink" title="从大三到求职 2022.4.5（19）"></a>从大三到求职 2022.4.5（19）</h1><p>今天学习的内容：</p>
+<ol>
+<li>golang入门</li>
+</ol>
+<hr>
+<h2 id="一、GoLang入门"><a href="#一、GoLang入门" class="headerlink" title="一、GoLang入门"></a>一、GoLang入门</h2><h3 id="1、语法特点"><a href="#1、语法特点" class="headerlink" title="1、语法特点"></a>1、语法特点</h3><p>以helloworld代码举例</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//程序的包名</span></span><br><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="comment">//导包</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;fmt&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">   fmt.Println(<span class="string">&quot;hello world!!!&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>go语言可以不在每句语句的结尾使用分号 ;</li>
+<li>通过导包来使用函数</li>
+<li>左大括号必须和函数名在同一行</li>
+</ol>
+<p>导包还有另外一个格式，当我们需要导入多个包可以使用这种方法</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">   <span class="string">&quot;fmt&quot;</span></span><br><span class="line">   <span class="string">&quot;time&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">   fmt.Println(<span class="string">&quot;hello world!!!&quot;</span>)</span><br><span class="line">   time.Sleep(<span class="number">1</span>*time.Second)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="2、四种变量声明方式"><a href="#2、四种变量声明方式" class="headerlink" title="2、四种变量声明方式"></a>2、四种变量声明方式</h3><p>方法一：<code> var + 变量名 + 数据类型  默认值为0</code></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//方法一：声明一种变量 默认值为0</span></span><br><span class="line"><span class="keyword">var</span> a <span class="keyword">int</span></span><br><span class="line">fmt.Println(<span class="string">&quot;a=&quot;</span>,a)</span><br><span class="line">fmt.Printf(<span class="string">&quot;Type of a=%T\n&quot;</span>,a)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/img/image-20220405221059338.png" alt="image-20220405221059338"></p>
+<p>方法二：<code> var + 变量名 + 数据类型 = 初始值</code></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//方法二：声明一个变量，初始化一个值</span></span><br><span class="line"><span class="keyword">var</span> b <span class="keyword">int</span> = <span class="number">100</span></span><br><span class="line">fmt.Println(<span class="string">&quot;b=&quot;</span>,b)</span><br><span class="line">fmt.Printf(<span class="string">&quot;Type of b=%T\n&quot;</span>,b)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/img/image-20220405221211491.png" alt="image-20220405221211491"></p>
+<p>方法三：<code>var + 变量名 = 初始值</code> 省去数据类型 通过值自动匹配</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//方法三：在初始化时，可以说省去数据类型，通过值自动匹配当前变量数据类型</span></span><br><span class="line"><span class="keyword">var</span> c = <span class="number">100</span></span><br><span class="line">fmt.Println(<span class="string">&quot;c=&quot;</span>,c)</span><br><span class="line">fmt.Printf(<span class="string">&quot;Type of c=%T\n&quot;</span>,c)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/img/image-20220405221219730.png" alt="image-20220405221219730"></p>
+<p>方法四：<code>变量名+ ：= 初始值</code> 省去var 和 数据类型 直接自动匹配   只能作为局部变量 不能作为全局变量 （其他三个可以）</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//方法4：（常用的方法） 省去var 直接自动匹配</span></span><br><span class="line">e :=<span class="number">100</span></span><br><span class="line">fmt.Println(<span class="string">&quot;e+&quot;</span>,e)</span><br><span class="line">fmt.Printf(<span class="string">&quot;Type of e=%T\n&quot;</span>,e)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">f := <span class="string">&quot;abcd&quot;</span></span><br><span class="line">fmt.Println(<span class="string">&quot;f+&quot;</span>,f)</span><br><span class="line">fmt.Printf(<span class="string">&quot;Type of f=%T\n&quot;</span>,f)</span><br></pre></td></tr></table></figure>
+
+
+
+<p>声明多个变量：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xx,yy <span class="keyword">int</span> =<span class="number">100</span>,<span class="number">200</span></span><br><span class="line">fmt.Println(<span class="string">&quot;xx=&quot;</span>,xx,<span class="string">&quot;yy=&quot;</span>,yy)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> kk,ll=<span class="number">100</span>,<span class="string">&quot;abcd&quot;</span></span><br><span class="line">fmt.Println(<span class="string">&quot;kk=&quot;</span>,kk,<span class="string">&quot;ll=&quot;</span>,ll)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/img/image-20220405221449239.png" alt="image-20220405221449239"></p>
+<p>声明多行变量：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//多行的变量声明</span></span><br><span class="line"><span class="keyword">var</span>(</span><br><span class="line">   vv <span class="keyword">int</span> = <span class="number">100</span></span><br><span class="line">   jj <span class="keyword">bool</span> = <span class="literal">true</span></span><br><span class="line">)</span><br><span class="line">fmt.Println(<span class="string">&quot;vv=&quot;</span>,vv,<span class="string">&quot;jj=&quot;</span>,jj)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/img/image-20220405221510882.png" alt="image-20220405221510882"></p>
+<h3 id="3、常量的声明-和-枚举"><a href="#3、常量的声明-和-枚举" class="headerlink" title="3、常量的声明 和 枚举"></a>3、常量的声明 和 枚举</h3><p>常量声明格式为：</p>
+<p><code>const + 常量名 = 常量值</code></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//常量（只读属性）</span></span><br><span class="line"><span class="keyword">const</span> length <span class="keyword">int</span> = <span class="number">10</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/img/image-20220405224026016.png" alt="image-20220405224026016"></p>
+<p>常量的枚举：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//const 定义枚举类型</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span>(</span><br><span class="line">   <span class="comment">//可以在const（）添加一个关键字 iota ，每行iota都会累加1 ，第一行的iota默认值为0</span></span><br><span class="line">   BEIJING =<span class="number">10</span>*<span class="literal">iota</span>   <span class="comment">//iota =0</span></span><br><span class="line">   SHANGHAI           <span class="comment">//iota =1 /10</span></span><br><span class="line">   SHENZHEN           <span class="comment">//iota =2 /20</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p>语法糖 iota ，默认值为1，每行累加1</p>
+<hr>
+<h3 id="4、函数的多返回值三种写法"><a href="#4、函数的多返回值三种写法" class="headerlink" title="4、函数的多返回值三种写法"></a>4、函数的多返回值三种写法</h3><p>第一种：返回 在正常方法体后 加返回值类型</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">fool</span><span class="params">(a <span class="keyword">string</span>,b <span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">   fmt.Println(<span class="string">&quot;a=&quot;</span>,a)</span><br><span class="line">   fmt.Println(<span class="string">&quot;b=&quot;</span>,b)</span><br><span class="line"></span><br><span class="line">   c :=<span class="number">100</span></span><br><span class="line">   <span class="keyword">return</span> c</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span>  &#123;</span><br><span class="line">	c :=fool(<span class="string">&quot;abc&quot;</span>,<span class="number">666</span>)</span><br><span class="line"></span><br><span class="line">	fmt.Println(<span class="string">&quot;c=&quot;</span>,c)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/img/image-20220405231214997.png" alt="image-20220405231214997"></p>
+<p>第二种： 返回多个返回值，匿名的</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">fool2</span><span class="params">(a <span class="keyword">string</span>,b <span class="keyword">int</span>)</span><span class="params">(<span class="keyword">int</span>,<span class="keyword">int</span>)</span></span>  &#123;</span><br><span class="line">   fmt.Println(<span class="string">&quot;a=&quot;</span>,a)</span><br><span class="line">   fmt.Println(<span class="string">&quot;b=&quot;</span>,b)</span><br><span class="line"></span><br><span class="line">   <span class="keyword">return</span> <span class="number">666</span>,<span class="number">777</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span>  &#123;</span><br><span class="line">	ret1,ret2 := fool2(<span class="string">&quot;haha&quot;</span>,<span class="number">999</span>)</span><br><span class="line">	fmt.Println(<span class="string">&quot;ret1=&quot;</span>,ret1,<span class="string">&quot;ret2=&quot;</span>,ret2)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/img/image-20220405231818239.png" alt="image-20220405231818239"></p>
+<p>第三种：返回多个返回值，有形参名的</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">fool3</span><span class="params">(a <span class="keyword">string</span>,b <span class="keyword">int</span>)</span> <span class="params">(r1 <span class="keyword">int</span>,r2 <span class="keyword">int</span>)</span></span>  &#123;</span><br><span class="line">   fmt.Println(<span class="string">&quot;======fool3======&quot;</span>)</span><br><span class="line">   fmt.Println(<span class="string">&quot;a=&quot;</span>,a)</span><br><span class="line">   fmt.Println(<span class="string">&quot;b=&quot;</span>,b)</span><br><span class="line"></span><br><span class="line">   <span class="comment">//给有名称的返回值变量赋值</span></span><br><span class="line">   r1 = <span class="number">1000</span></span><br><span class="line">   r2 = <span class="number">2000</span></span><br><span class="line"></span><br><span class="line">   <span class="keyword">return</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span>  &#123;</span><br><span class="line">	ret3,ret4 := fool3(<span class="string">&quot;fool3&quot;</span>,<span class="number">333</span>)</span><br><span class="line">	fmt.Println(<span class="string">&quot;ret1=&quot;</span>,ret3,<span class="string">&quot;ret2=&quot;</span>,ret4)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/img/image-20220405231953954.png" alt="image-20220405231953954"></p>
+<p>第三种还可以变形一下，把两个相同类型参数 用一个类型行</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//返回多个返回值，有形参名的</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">fool4</span><span class="params">(a <span class="keyword">string</span>,b <span class="keyword">int</span>)</span> <span class="params">(r1 ,r2 <span class="keyword">int</span>)</span></span>  &#123;</span><br><span class="line">   fmt.Println(<span class="string">&quot;======fool4======&quot;</span>)</span><br><span class="line">   fmt.Println(<span class="string">&quot;a=&quot;</span>,a)</span><br><span class="line">   fmt.Println(<span class="string">&quot;b=&quot;</span>,b)</span><br><span class="line"></span><br><span class="line">   <span class="comment">//给有名称的返回值变量赋值</span></span><br><span class="line">   r1 = <span class="number">1000</span></span><br><span class="line">   r2 = <span class="number">2000</span></span><br><span class="line"></span><br><span class="line">   <span class="keyword">return</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<hr>
+<h3 id="5、init函数和import导包"><a href="#5、init函数和import导包" class="headerlink" title="5、init函数和import导包"></a>5、init函数和import导包</h3><p>go程序开始运行时，顺序如图</p>
+<p><img src="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/img/image-20220405232120699.png" alt="image-20220405232120699"></p>
+<p>我们先创建两个包 lib1 和 lib2 ，包提供的api 必须大写开头，不然只能包内使用</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> lib1</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;fmt&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//当前lib1 包提供的api 必须大写开头，不然只能包内使用</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Lib1Test</span><span class="params">()</span></span>  &#123;</span><br><span class="line">   fmt.Println(<span class="string">&quot;lib1Test......&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">init</span><span class="params">()</span></span>  &#123;</span><br><span class="line">   fmt.Println(<span class="string">&quot;lib1.init().....&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> lib2</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;fmt&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//当前lib2包提供的api</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Lib2Test</span><span class="params">()</span></span>  &#123;</span><br><span class="line">   fmt.Println(<span class="string">&quot;lib2Test......&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">init</span><span class="params">()</span></span>  &#123;</span><br><span class="line">   fmt.Println(<span class="string">&quot;lib2.init().....&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>创建main.go，注意导包的时候要包的全限定名，因为默认搜索 go源码和gopath，找不到会报错</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">   <span class="string">&quot;Go_study/5-init/lib1&quot;</span></span><br><span class="line">   <span class="string">&quot;Go_study/5-init/lib2&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span>  &#123;</span><br><span class="line">   lib1.Lib1Test()</span><br><span class="line">   lib2.Lib2Test()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Radeno</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2022/04/05/202245-%E4%BB%8E%E5%A4%A7%E4%B8%89%E5%88%B0%E6%B1%82%E8%81%8C-2022.4.5%EF%BC%8819%EF%BC%89/">http://example.com/2022/04/05/202245-%E4%BB%8E%E5%A4%A7%E4%B8%89%E5%88%B0%E6%B1%82%E8%81%8C-2022.4.5%EF%BC%8819%EF%BC%89/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">Hexo</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/forest-6812584_1920.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/04/06/202246-%E4%BB%8E%E5%A4%A7%E4%B8%89%E5%88%B0%E6%B1%82%E8%81%8C-2022.4.6%EF%BC%8820%EF%BC%89/"><img class="prev-cover" src="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/forest-6812584_1920.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">从大三到求职 2022.4.6（20）</div></div></a></div><div class="next-post pull-right"><a href="/2022/03/30/2022330-%E4%BB%8E%E5%A4%A7%E4%B8%89%E5%88%B0%E6%B1%82%E8%81%8C-2022.3.30%EF%BC%8818%EF%BC%89/"><img class="next-cover" src="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/forest-6812584_1920.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">从大三到求职 2022.3.30（18）</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20211211144955.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Radeno</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">33</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Darlinginthe02"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">欢迎来到Radeno的博客</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%8E%E5%A4%A7%E4%B8%89%E5%88%B0%E6%B1%82%E8%81%8C-2022-4-5%EF%BC%8819%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">从大三到求职 2022.4.5（19）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81GoLang%E5%85%A5%E9%97%A8"><span class="toc-number">1.1.</span> <span class="toc-text">一、GoLang入门</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81%E8%AF%AD%E6%B3%95%E7%89%B9%E7%82%B9"><span class="toc-number">1.1.1.</span> <span class="toc-text">1、语法特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81%E5%9B%9B%E7%A7%8D%E5%8F%98%E9%87%8F%E5%A3%B0%E6%98%8E%E6%96%B9%E5%BC%8F"><span class="toc-number">1.1.2.</span> <span class="toc-text">2、四种变量声明方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%E3%80%81%E5%B8%B8%E9%87%8F%E7%9A%84%E5%A3%B0%E6%98%8E-%E5%92%8C-%E6%9E%9A%E4%B8%BE"><span class="toc-number">1.1.3.</span> <span class="toc-text">3、常量的声明 和 枚举</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4%E3%80%81%E5%87%BD%E6%95%B0%E7%9A%84%E5%A4%9A%E8%BF%94%E5%9B%9E%E5%80%BC%E4%B8%89%E7%A7%8D%E5%86%99%E6%B3%95"><span class="toc-number">1.1.4.</span> <span class="toc-text">4、函数的多返回值三种写法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5%E3%80%81init%E5%87%BD%E6%95%B0%E5%92%8Cimport%E5%AF%BC%E5%8C%85"><span class="toc-number">1.1.5.</span> <span class="toc-text">5、init函数和import导包</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/04/15/2022415-%E4%BB%8E%E5%A4%A7%E4%B8%89%E5%88%B0%E6%B1%82%E8%81%8C-2022.4.15%EF%BC%8825%EF%BC%89/" title="从大三到求职 2022.4.15（25）"><img src="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/forest-6812584_1920.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="从大三到求职 2022.4.15（25）"/></a><div class="content"><a class="title" href="/2022/04/15/2022415-%E4%BB%8E%E5%A4%A7%E4%B8%89%E5%88%B0%E6%B1%82%E8%81%8C-2022.4.15%EF%BC%8825%EF%BC%89/" title="从大三到求职 2022.4.15（25）">从大三到求职 2022.4.15（25）</a><time datetime="2022-04-15T02:05:25.000Z" title="发表于 2022-04-15 10:05:25">2022-04-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/04/15/Nacos%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/" title="Nacos安装指南 2022.4.15"><img src="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/forest-6812584_1920.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Nacos安装指南 2022.4.15"/></a><div class="content"><a class="title" href="/2022/04/15/Nacos%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/" title="Nacos安装指南 2022.4.15">Nacos安装指南 2022.4.15</a><time datetime="2022-04-15T02:05:25.000Z" title="发表于 2022-04-15 10:05:25">2022-04-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/04/12/2022412-%E4%BB%8E%E5%A4%A7%E4%B8%89%E5%88%B0%E6%B1%82%E8%81%8C-2022.4.12%EF%BC%8825%EF%BC%89/" title="从大三到求职 2022.4.12（25）"><img src="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/forest-6812584_1920.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="从大三到求职 2022.4.12（25）"/></a><div class="content"><a class="title" href="/2022/04/12/2022412-%E4%BB%8E%E5%A4%A7%E4%B8%89%E5%88%B0%E6%B1%82%E8%81%8C-2022.4.12%EF%BC%8825%EF%BC%89/" title="从大三到求职 2022.4.12（25）">从大三到求职 2022.4.12（25）</a><time datetime="2022-04-11T16:05:25.000Z" title="发表于 2022-04-12 00:05:25">2022-04-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/04/11/2022411-%E4%BB%8E%E5%A4%A7%E4%B8%89%E5%88%B0%E6%B1%82%E8%81%8C-2022.4.11%EF%BC%8824%EF%BC%89/" title="从大三到求职 2022.4.11（24）"><img src="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/forest-6812584_1920.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="从大三到求职 2022.4.11（24）"/></a><div class="content"><a class="title" href="/2022/04/11/2022411-%E4%BB%8E%E5%A4%A7%E4%B8%89%E5%88%B0%E6%B1%82%E8%81%8C-2022.4.11%EF%BC%8824%EF%BC%89/" title="从大三到求职 2022.4.11（24）">从大三到求职 2022.4.11（24）</a><time datetime="2022-04-10T16:05:25.000Z" title="发表于 2022-04-11 00:05:25">2022-04-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/04/10/2022410-%E4%BB%8E%E5%A4%A7%E4%B8%89%E5%88%B0%E6%B1%82%E8%81%8C-2022.4.10%EF%BC%8823%EF%BC%89/" title="从大三到求职 2022.4.10（23）"><img src="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/forest-6812584_1920.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="从大三到求职 2022.4.10（23）"/></a><div class="content"><a class="title" href="/2022/04/10/2022410-%E4%BB%8E%E5%A4%A7%E4%B8%89%E5%88%B0%E6%B1%82%E8%81%8C-2022.4.10%EF%BC%8823%EF%BC%89/" title="从大三到求职 2022.4.10（23）">从大三到求职 2022.4.10（23）</a><time datetime="2022-04-09T16:05:25.000Z" title="发表于 2022-04-10 00:05:25">2022-04-10</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By Radeno</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script src="https://cdn.jsdelivr.net/gh/sviptzk/StaticFile_HEXO@latest/butterfly/js/pool.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

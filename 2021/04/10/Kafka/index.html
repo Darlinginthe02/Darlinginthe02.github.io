@@ -1,0 +1,274 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Kafka | Hexo</title><meta name="author" content="Radeno"><meta name="copyright" content="Radeno"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Kafka1、阻塞队列 BlockingQueue 解决线程通信的问题 阻塞方法：put，take   生产者消费者模式 生产者：产生数据的线程 消费者：使用数据的线程   实现类： ArrayBlockingQueue LinkedBlockingQueue PriorityBlockingQueue，SynchronousQueue，DelayQueue    2、Kafka入门Kafka简介">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kafka">
+<meta property="og:url" content="http://example.com/2021/04/10/Kafka/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Kafka1、阻塞队列 BlockingQueue 解决线程通信的问题 阻塞方法：put，take   生产者消费者模式 生产者：产生数据的线程 消费者：使用数据的线程   实现类： ArrayBlockingQueue LinkedBlockingQueue PriorityBlockingQueue，SynchronousQueue，DelayQueue    2、Kafka入门Kafka简介">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/forest-6812584_1920.jpg">
+<meta property="article:published_time" content="2021-04-09T16:22:25.000Z">
+<meta property="article:modified_time" content="2022-04-15T12:28:24.608Z">
+<meta property="article:author" content="Radeno">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/forest-6812584_1920.jpg"><link rel="shortcut icon" href="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/%E7%BC%96%E7%A8%8B.png"><link rel="canonical" href="http://example.com/2021/04/10/Kafka/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Kafka',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-04-15 20:28:24'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sviptzk/StaticFile_HEXO@latest/butterfly/css/pool.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sviptzk/StaticFile_HEXO@latest/butterfly/css/iconfont.min.css"><meta name="generator" content="Hexo 5.4.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20211211144955.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">33</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/%E9%9F%B3%E4%B9%90"><i class="fa-fw /music/"></i><span> 0</span></a></li><li><a class="site-page child" href="/%E7%94%B5%E5%BD%B1"><i class="fa-fw /movies/"></i><span> 1</span></a></li><li><a class="site-page child" href="/%E7%85%A7%E7%89%87"><i class="fa-fw /Gallery/"></i><span> 2</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/forest-6812584_1920.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Hexo</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/%E9%9F%B3%E4%B9%90"><i class="fa-fw /music/"></i><span> 0</span></a></li><li><a class="site-page child" href="/%E7%94%B5%E5%BD%B1"><i class="fa-fw /movies/"></i><span> 1</span></a></li><li><a class="site-page child" href="/%E7%85%A7%E7%89%87"><i class="fa-fw /Gallery/"></i><span> 2</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Kafka</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-04-09T16:22:25.000Z" title="发表于 2021-04-10 00:22:25">2021-04-10</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-04-15T12:28:24.608Z" title="更新于 2022-04-15 20:28:24">2022-04-15</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Kafka"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="Kafka"><a href="#Kafka" class="headerlink" title="Kafka"></a>Kafka</h1><h2 id="1、阻塞队列"><a href="#1、阻塞队列" class="headerlink" title="1、阻塞队列"></a>1、阻塞队列</h2><ul>
+<li>BlockingQueue<ol>
+<li>解决线程通信的问题</li>
+<li>阻塞方法：put，take</li>
+</ol>
+</li>
+<li>生产者消费者模式<ol>
+<li>生产者：产生数据的线程</li>
+<li>消费者：使用数据的线程</li>
+</ol>
+</li>
+<li>实现类：<ol>
+<li>ArrayBlockingQueue</li>
+<li>LinkedBlockingQueue</li>
+<li>PriorityBlockingQueue，SynchronousQueue，DelayQueue</li>
+</ol>
+</li>
+</ul>
+<h2 id="2、Kafka入门"><a href="#2、Kafka入门" class="headerlink" title="2、Kafka入门"></a>2、Kafka入门</h2><p>Kafka简介：</p>
+<ul>
+<li>kafka是一个分布式的流媒体平台</li>
+<li>应用：消息系统，日志收集，用户行为追踪，流式处理</li>
+</ul>
+<p>kafka特点：</p>
+<ul>
+<li>高吞吐，消息持久化，高可靠性，高扩展性</li>
+</ul>
+<p>kafka术语：</p>
+<ul>
+<li>Broker：服务器代理节点 <ul>
+<li>其实就可以看做独立的kafka节点或kafka实例</li>
+</ul>
+</li>
+<li>Zookeeper：注册中心，服务发现中心，进行分布式管理</li>
+<li>Topic：主题 </li>
+<li>Partition：分区 对主题位置的分区</li>
+</ul>
+<ul>
+<li>Offerset ：  消息存放在队列里的索引</li>
+<li>Leader Replica ：主副本</li>
+<li>Follower Replica：随从副本</li>
+</ul>
+<h2 id="3、Kafka体系结构"><a href="#3、Kafka体系结构" class="headerlink" title="3、Kafka体系结构"></a>3、Kafka体系结构</h2><img src="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/img/image-20220409170226242.png" alt="image-20220409170226242" style="zoom:50%;" />
+
+<h3 id="3-1-Producer（-生产者）"><a href="#3-1-Producer（-生产者）" class="headerlink" title="3.1 Producer（ 生产者）"></a>3.1 Producer（ 生产者）</h3><p>也就是发送消息的一方，生产者负责创建消息，再把它投送到kafka的broker中</p>
+<h3 id="3-2-Consumer-（消费者）"><a href="#3-2-Consumer-（消费者）" class="headerlink" title="3.2  Consumer  （消费者）"></a>3.2  Consumer  （消费者）</h3><p>也就是接收消息的一方，消费者连接到kafka的broker上并接收消息，进而进行相关的业务逻辑处理。</p>
+<h3 id="3-3-Broker"><a href="#3-3-Broker" class="headerlink" title="3.3 Broker"></a>3.3 Broker</h3><p>服务代理节点。对于kafka来说，Broker可以简单的看做一个独立的kafka实例或一个kafka服务节点</p>
+<p>大多情况下也可以吧Broker看做一台kafka服务器，前提是这台服务器上只部署了一个kafka实例</p>
+<h3 id="3-4-Topic（主题）"><a href="#3-4-Topic（主题）" class="headerlink" title="3.4 Topic（主题）"></a>3.4 Topic（主题）</h3><p>Kafka中的消息以主题为单位进行分类，生产者把消息发送到特定的主题（发送的每一条消息都要指定主题），消费者通过订阅主题来进行消费。</p>
+<p>主题是一个逻辑上的概念，还可细分为多个分区，一个分区只属于一个主题。</p>
+<p>所以分区还可称为 <code>主题分区（Topic-Partition）</code> </p>
+<p>分区我们可以把它看做一个可以追加的 日志 log 文件，消息过来就追加在这个日志中，并给他一个偏移量 <code>offset</code>。</p>
+<p><code>offerset</code>是消息在分区中的唯一标识，kafka通过它来保证消息在分区中的顺序性。但是offset不跨越分区。</p>
+<p>所以Kafka是保证分区有序性而不是主题有序性。</p>
+<h3 id="3-5-Partition（分区）"><a href="#3-5-Partition（分区）" class="headerlink" title="3.5 Partition（分区）"></a>3.5 Partition（分区）</h3><p>分区就是主题的细分，一个主题可以有很多个分区，多个分区从而实现了对高并发的兼容还有多副本的使用保证了可靠性</p>
+<img src="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/img/image-20220409160958767.png" alt="image-20220409160958767" style="zoom:50%;" />
+
+
+
+<p>如图所示，主题中有4 个分区，消息被顺序追加到每个分区日志文件的尾部。</p>
+<p>Kafka中的分区可以分布在不同的服务器 broker上，也就是说，一个主题可以横跨多个 broker ，以此来提供比单个 broker 更强大的性能</p>
+<img src="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/img/image-20220409170327505.png" alt="image-20220409170327505" style="zoom:50%;" />
+
+<p>每一条消息被发送到 broker 之前，会根据分区规则选择存储到哪个具体的分区。</p>
+<p>如果分区规则设定得合理，所有的消息都可以均匀地分配到不同的分区中</p>
+<p>如果 个主题只对应一个文件，那么这个文件所在的机器 将会成为这个主题的性能瓶颈，而分区解决了这个问题</p>
+<p>在创建主题的时候可以通过指定的参数来设置分区的个数，当然也可以在主题创建完成之后去修改分区的数量，通过增加分区的数量可以实现<strong>水平扩展</strong>。</p>
+<p>总结：使用分区规则使得生产者发送的消息可以均匀的分配到不同的分区，从而提高性能。 并且也可以通过修改分区数量实现水平扩展</p>
+<h2 id="4、Kafka的多副本机制"><a href="#4、Kafka的多副本机制" class="headerlink" title="4、Kafka的多副本机制"></a>4、Kafka的多副本机制</h2><p>Kafka 为分区引入了多副本 （Replica） 机制， 通过增加副本数量可以提升容灾能力。</p>
+<p>同一分区的不同副本中保存的是相同的消息（在同一时刻，副本之间并非完全一样）</p>
+<p>副本之间是“一主多从”的关系， Leader副本（主副本） 负责读写，Follower（从副本）只负责和主副本的消息同步（专注于备份主副本）</p>
+<p>副本处于不同的 broker ，当 leader 副本出现故障时，从 Follower 副本中重新选举新的 leader副 本对外提供服务。</p>
+<p>Kafka 通过多副本机制实现了故障的自动转移，当 Kafka 集群中某个 broker 失效时仍然能保证服务可用</p>
+<p>总结：Kafka通过“一主多从”的副本关系实现多副本机制，并且在主副本发生问题时及时从从副本进行选举，从而实现故障自动处理，保证</p>
+<p>了服务的高可用</p>
+<p>如图所示， Kafka 集群中有4个 broker ，某个主题中有3 个分区，且副本因子（即副本个数〉也为 ，如此每个分区便有 leader 副本和 follower 副本。</p>
+<p><strong>生产者和消费者只与 leader副本进行交互</strong>，而 follow 副本只负责消息的同步</p>
+<p>很多时候 follower 副本中的消息相对 leader副本而言会有一定的滞后。</p>
+<img src="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/img/image-20220409171257560.png" alt="image-20220409171257560" style="zoom:50%;" />
+
+<p>Kafka 消费端也具备 容灾能力。</p>
+<p> Consumer 使用拉（Pull）模式从服务端拉取消息，并且保存消费的具体位置 ，当消费者宕机后恢复上线时可以根据之前保存的消费位置重新拉取需要的消息进行消费 ，这样就不会造成消息丢失</p>
+<p>意思就是消费者在拉取消息的同时还会 保存拉到哪里了，下一次就可以根据这个标志位继续进行消费，避免丢失</p>
+<hr>
+<h2 id="5、Kafka-Win本地环境安装配置"><a href="#5、Kafka-Win本地环境安装配置" class="headerlink" title="5、Kafka Win本地环境安装配置"></a>5、Kafka Win本地环境安装配置</h2><p>首先先去官网下载需要的Kafka</p>
+<p><a target="_blank" rel="noopener" href="https://kafka.apache.org/downloads">https://kafka.apache.org/downloads</a></p>
+<img src="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/img/image-20220409204421552.png" alt="image-20220409204421552" style="zoom: 33%;" />
+
+
+
+<p>算了不写了要装自己看视频 <a target="_blank" rel="noopener" href="https://www.nowcoder.com/study/live/246/5/9">https://www.nowcoder.com/study/live/246/5/9</a></p>
+<hr>
+<h2 id="6、Spring整合Kafka"><a href="#6、Spring整合Kafka" class="headerlink" title="6、Spring整合Kafka"></a>6、Spring整合Kafka</h2><p>先引入依赖</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.kafka<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-kafka<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>编写配置文件</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#KafkaProperties</span></span><br><span class="line"><span class="meta">spring.kafka.bootstrap-servers</span>=<span class="string">localhost:9092</span></span><br><span class="line"><span class="comment">#在kafka_2.12-2.3.0\config目录下的consumer.properties中</span></span><br><span class="line"><span class="meta">spring.kafka.consumer.group-id</span>=<span class="string">test-consumer-group</span></span><br><span class="line"><span class="comment">#是否自动提交偏移量</span></span><br><span class="line"><span class="meta">spring.kafka.consumer.enable-auto-commit</span>=<span class="string">true</span></span><br><span class="line"><span class="comment">#提交频率</span></span><br><span class="line"><span class="meta">spring.kafka.consumer.auto-commit-interval</span>=<span class="string">3000</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>编写测试类</p>
+<p>生产者</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">KafkaProducer</span></span>&#123;</span><br><span class="line">	</span><br><span class="line">    <span class="comment">//类似RedisTemplate，用来操作kafka</span></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> KafkaTemplate kafkaTemplate;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sendMessage</span><span class="params">(String topic,String content)</span></span>&#123;</span><br><span class="line">        kafkaTemplate.send(topic,content);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>消费者</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">KafkaConsumer</span></span>&#123;</span><br><span class="line">	</span><br><span class="line">    <span class="comment">//spring使用这个注释来实现消费者对 主题的监听，说白了就是要去消费哪个主题</span></span><br><span class="line">    <span class="meta">@KafkaListener(topics = &#123;&quot;test&quot;&#125;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">hanleMessage</span> <span class="params">(ConsumerRecord record)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">        System.out.println(record.value());</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>测试类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RunWith(SpringRunner.class)</span></span><br><span class="line"><span class="meta">@SpringBootTest</span></span><br><span class="line"><span class="meta">@ContextConfiguration(classes = CommunityApplication.class)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">KafkaTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> KafkaProducer kafkaProducer;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> KafkaConsumer kafkaConsumer;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testKafka</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">        kafkaProducer.sendMessage(<span class="string">&quot;test&quot;</span>,<span class="string">&quot;你好&quot;</span>);</span><br><span class="line">        kafkaProducer.sendMessage(<span class="string">&quot;test&quot;</span>,<span class="string">&quot;在吗&quot;</span>);</span><br><span class="line">        kafkaProducer.sendMessage(<span class="string">&quot;test&quot;</span>,<span class="string">&quot;在吗&quot;</span>);</span><br><span class="line">        kafkaProducer.sendMessage(<span class="string">&quot;test&quot;</span>,<span class="string">&quot;在吗&quot;</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Thread.sleep(<span class="number">1000</span>*<span class="number">10</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>运行结果：</p>
+<p><img src="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/img/image-20220409205520826.png" alt="image-20220409205520826"></p>
+<p>生产者主动运行，消费者自动运行</p>
+<hr>
+<h2 id="7、Kafka实现发送系统通知"><a href="#7、Kafka实现发送系统通知" class="headerlink" title="7、Kafka实现发送系统通知"></a>7、Kafka实现发送系统通知</h2><p>事件驱动，以事件为单位来封装</p>
+<ul>
+<li>评论</li>
+<li>点赞</li>
+<li>关注</li>
+</ul>
+<p><img src="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/img/image-20220409210605053.png" alt="image-20220409210605053"></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Radeno</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2021/04/10/Kafka/">http://example.com/2021/04/10/Kafka/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">Hexo</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/forest-6812584_1920.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-full"><a href="/2021/12/11/CAP%E5%AE%9A%E7%90%86/"><img class="prev-cover" src="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/forest-6812584.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">CAP定理</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20211211144955.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Radeno</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">33</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Darlinginthe02"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">欢迎来到Radeno的博客</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Kafka"><span class="toc-number">1.</span> <span class="toc-text">Kafka</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81%E9%98%BB%E5%A1%9E%E9%98%9F%E5%88%97"><span class="toc-number">1.1.</span> <span class="toc-text">1、阻塞队列</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81Kafka%E5%85%A5%E9%97%A8"><span class="toc-number">1.2.</span> <span class="toc-text">2、Kafka入门</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3%E3%80%81Kafka%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84"><span class="toc-number">1.3.</span> <span class="toc-text">3、Kafka体系结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-Producer%EF%BC%88-%E7%94%9F%E4%BA%A7%E8%80%85%EF%BC%89"><span class="toc-number">1.3.1.</span> <span class="toc-text">3.1 Producer（ 生产者）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-Consumer-%EF%BC%88%E6%B6%88%E8%B4%B9%E8%80%85%EF%BC%89"><span class="toc-number">1.3.2.</span> <span class="toc-text">3.2  Consumer  （消费者）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-Broker"><span class="toc-number">1.3.3.</span> <span class="toc-text">3.3 Broker</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-Topic%EF%BC%88%E4%B8%BB%E9%A2%98%EF%BC%89"><span class="toc-number">1.3.4.</span> <span class="toc-text">3.4 Topic（主题）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-5-Partition%EF%BC%88%E5%88%86%E5%8C%BA%EF%BC%89"><span class="toc-number">1.3.5.</span> <span class="toc-text">3.5 Partition（分区）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4%E3%80%81Kafka%E7%9A%84%E5%A4%9A%E5%89%AF%E6%9C%AC%E6%9C%BA%E5%88%B6"><span class="toc-number">1.4.</span> <span class="toc-text">4、Kafka的多副本机制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5%E3%80%81Kafka-Win%E6%9C%AC%E5%9C%B0%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE"><span class="toc-number">1.5.</span> <span class="toc-text">5、Kafka Win本地环境安装配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6%E3%80%81Spring%E6%95%B4%E5%90%88Kafka"><span class="toc-number">1.6.</span> <span class="toc-text">6、Spring整合Kafka</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7%E3%80%81Kafka%E5%AE%9E%E7%8E%B0%E5%8F%91%E9%80%81%E7%B3%BB%E7%BB%9F%E9%80%9A%E7%9F%A5"><span class="toc-number">1.7.</span> <span class="toc-text">7、Kafka实现发送系统通知</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/04/15/2022415-%E4%BB%8E%E5%A4%A7%E4%B8%89%E5%88%B0%E6%B1%82%E8%81%8C-2022.4.15%EF%BC%8825%EF%BC%89/" title="从大三到求职 2022.4.15（25）"><img src="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/forest-6812584_1920.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="从大三到求职 2022.4.15（25）"/></a><div class="content"><a class="title" href="/2022/04/15/2022415-%E4%BB%8E%E5%A4%A7%E4%B8%89%E5%88%B0%E6%B1%82%E8%81%8C-2022.4.15%EF%BC%8825%EF%BC%89/" title="从大三到求职 2022.4.15（25）">从大三到求职 2022.4.15（25）</a><time datetime="2022-04-15T02:05:25.000Z" title="发表于 2022-04-15 10:05:25">2022-04-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/04/15/Nacos%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/" title="Nacos安装指南 2022.4.15"><img src="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/forest-6812584_1920.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Nacos安装指南 2022.4.15"/></a><div class="content"><a class="title" href="/2022/04/15/Nacos%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/" title="Nacos安装指南 2022.4.15">Nacos安装指南 2022.4.15</a><time datetime="2022-04-15T02:05:25.000Z" title="发表于 2022-04-15 10:05:25">2022-04-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/04/12/2022412-%E4%BB%8E%E5%A4%A7%E4%B8%89%E5%88%B0%E6%B1%82%E8%81%8C-2022.4.12%EF%BC%8825%EF%BC%89/" title="从大三到求职 2022.4.12（25）"><img src="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/forest-6812584_1920.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="从大三到求职 2022.4.12（25）"/></a><div class="content"><a class="title" href="/2022/04/12/2022412-%E4%BB%8E%E5%A4%A7%E4%B8%89%E5%88%B0%E6%B1%82%E8%81%8C-2022.4.12%EF%BC%8825%EF%BC%89/" title="从大三到求职 2022.4.12（25）">从大三到求职 2022.4.12（25）</a><time datetime="2022-04-11T16:05:25.000Z" title="发表于 2022-04-12 00:05:25">2022-04-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/04/11/2022411-%E4%BB%8E%E5%A4%A7%E4%B8%89%E5%88%B0%E6%B1%82%E8%81%8C-2022.4.11%EF%BC%8824%EF%BC%89/" title="从大三到求职 2022.4.11（24）"><img src="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/forest-6812584_1920.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="从大三到求职 2022.4.11（24）"/></a><div class="content"><a class="title" href="/2022/04/11/2022411-%E4%BB%8E%E5%A4%A7%E4%B8%89%E5%88%B0%E6%B1%82%E8%81%8C-2022.4.11%EF%BC%8824%EF%BC%89/" title="从大三到求职 2022.4.11（24）">从大三到求职 2022.4.11（24）</a><time datetime="2022-04-10T16:05:25.000Z" title="发表于 2022-04-11 00:05:25">2022-04-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/04/10/2022410-%E4%BB%8E%E5%A4%A7%E4%B8%89%E5%88%B0%E6%B1%82%E8%81%8C-2022.4.10%EF%BC%8823%EF%BC%89/" title="从大三到求职 2022.4.10（23）"><img src="https://hexo-1300215340.cos.ap-guangzhou.myqcloud.com/forest-6812584_1920.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="从大三到求职 2022.4.10（23）"/></a><div class="content"><a class="title" href="/2022/04/10/2022410-%E4%BB%8E%E5%A4%A7%E4%B8%89%E5%88%B0%E6%B1%82%E8%81%8C-2022.4.10%EF%BC%8823%EF%BC%89/" title="从大三到求职 2022.4.10（23）">从大三到求职 2022.4.10（23）</a><time datetime="2022-04-09T16:05:25.000Z" title="发表于 2022-04-10 00:05:25">2022-04-10</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By Radeno</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script src="https://cdn.jsdelivr.net/gh/sviptzk/StaticFile_HEXO@latest/butterfly/js/pool.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
